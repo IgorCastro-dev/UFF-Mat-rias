@@ -7,6 +7,7 @@ import { FormControl, Validators } from '@angular/forms';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  nomeBotao = "entrar";
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
   getErrorMessage() {
