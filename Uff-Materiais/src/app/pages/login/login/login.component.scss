@@ -1,0 +1,18 @@
+form{
+  display: flex;
+  flex-direction: column;
+  line-height: 100px;
+}
+.login{
+  margin-top: 114px;
+  margin-left: 50px;
+  margin-right: 50px;
+  height: 600px;
+}
+.caminhos{
+  color: white;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
