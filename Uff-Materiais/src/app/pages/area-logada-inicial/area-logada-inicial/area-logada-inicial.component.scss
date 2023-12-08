@@ -1,0 +1,52 @@
+.area_logada_inicial {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+}
+.logo_logado{
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  justify-content: center;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 92vh;
+  color: white;
+}
+
+mat-icon{
+  padding-left: 1rem;
+}
+
+.botoes{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  height: 150px;
+}
+
+
+@media (min-width: 600px){
+  .logo_logado{
+    display: none;
+  }
+  app-footer{
+    display: none;
+  }
+}
+@media (max-width: 600px){
+  app-nav-bar{
+    display: none;
+  }
+}
