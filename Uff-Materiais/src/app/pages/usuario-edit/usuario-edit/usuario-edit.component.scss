@@ -1,0 +1,81 @@
+.area_logada_inicial {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+}
+.logo_logado{
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  justify-content: space-between;
+}
+
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  flex-direction: column;
+  min-height: 92vh;
+  color: white;
+  padding-top: 80px;
+}
+
+ul{
+  color: black;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+li{
+  background-color: #c0c0c0;
+  height: 55px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: large;
+}
+button{
+  align-items: center;
+  vertical-align:text-bottom;
+}
+
+mat-icon {
+  vertical-align:text-bottom !important;
+}
+
+app-pesquisa{
+  width: 100%;
+}
+
+p{
+  margin-top: 20px;
+}
+.botoes{
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+@media (min-width: 600px){
+  .logo_logado{
+    display: none;
+  }
+  app-footer{
+    display: none;
+  }
+}
+@media (max-width: 600px){
+  app-nav-bar{
+    display: none;
+  }
+}
