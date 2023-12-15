@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
     @Input() nome: string = "botão";
+    @Input() color: string = "primary";
 }

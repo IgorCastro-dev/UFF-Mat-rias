@@ -17,7 +17,12 @@ mat-toolbar-row{
 span{
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+span:hover{
+  opacity:0.8
 }
 mat-icon{
   padding-right: 15px;
 }
+

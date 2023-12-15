@@ -3,7 +3,8 @@
     <span><app-logo></app-logo></span>
     <span><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Home</span>
     <span><mat-icon aria-hidden="false" aria-label="Example school icon" fontIcon="school"></mat-icon>Matérias</span>
-    <span><mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_back"></mat-icon>Voltar</span>
+    <span (click)="goBack()"><mat-icon aria-hidden="false" aria-label="Example arrow icon" fontIcon="arrow_back"></mat-icon>Voltar</span>
     <span><mat-icon aria-hidden="false" aria-label="Example user icon" fontIcon="account_circle"></mat-icon></span>
   </mat-toolbar-row>
 </mat-toolbar>
+

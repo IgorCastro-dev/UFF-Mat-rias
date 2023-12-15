@@ -8,19 +8,43 @@
     <h1>Olá, Leo</h1>
     <p>Você terá acesso aos usuários do sistema.</p>
     <app-pesquisa [label] = "label" [exemplo]="exemplo"></app-pesquisa>
-    <ul>
-      <li>
-          Igor Castro
-        <div class="botoes">
-          <button mat-icon-button color="Primary - grey" aria-label="Example icon button with a menu icon">
-            <mat-icon>delete</mat-icon>
-          </button>
-          <button mat-icon-button color="Primary - grey" aria-label="Example icon button with a menu icon">
+    <table mat-table [dataSource]="usuario" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="usuarios_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.usuarios_id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.nome}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="celular">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Celular </th>
+        <td mat-cell *matCellDef="let usuario"> {{usuario.celular}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Ações </th>
+        <td mat-cell *matCellDef="let usuario">
+          <button mat-icon-button>
             <mat-icon>edit</mat-icon>
           </button>
-        </div>
-      </li>
-    </ul>
+          <button mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
   </div>
   <app-footer></app-footer>
   </div>

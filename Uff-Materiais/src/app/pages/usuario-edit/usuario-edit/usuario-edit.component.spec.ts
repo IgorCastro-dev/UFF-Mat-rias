@@ -11,7 +11,7 @@ describe('UsuarioEditComponent', () => {
       declarations: [UsuarioEditComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(UsuarioEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
