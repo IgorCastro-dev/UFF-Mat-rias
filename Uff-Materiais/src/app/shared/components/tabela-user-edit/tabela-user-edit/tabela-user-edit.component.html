@@ -1,0 +1,38 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Usuário</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. João" #input>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Celular</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of dataSource.connect() | async">
+        <td>{{ user.usuarios_id }}</td>
+        <td>{{ user.nome }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.celular }}</td>
+        <td>
+          <button mat-icon-button color="black" aria-label="Example icon button with a menu icon">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="black" aria-label="Example icon button with a menu icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+              [pageSize]="10"
+              aria-label="Select page">
+</mat-paginator>
+</div>
