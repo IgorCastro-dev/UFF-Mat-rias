@@ -1,7 +1,7 @@
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <mat-label>{{label}}</mat-label>
-    <input matInput placeholder={{exemplo}}>
+    <input matInput (keyup)="applyFilter($event)" placeholder={{exemplo}}>
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </form>

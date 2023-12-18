@@ -1,28 +1,30 @@
-import { Component, Input } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { Usuario } from '../../../model/usuario';
+
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-usuario-edit',
   templateUrl: './usuario-edit.component.html',
-  styleUrl: './usuario-edit.component.scss'
+  styleUrls: ['./usuario-edit.component.scss']
 })
 export class UsuarioEditComponent {
-  label = "Usuário";
-  exemplo = "Gabriel"
-  usuario :any[] = [
-    {usuarios_id: 1,
-    nome: "João Silva",
-    email: "joao@email.com",
-    senha: "senha123",
-    celular: "123456789"
-  },{usuarios_id: 2,
-    nome: "João Silva",
-    email: "joao@email.com",
-    senha: "senha123",
-    celular: "123456789"
-  }
-  ];
+  totalCount = 100;
+  pageSize = 10;
+  siblingCount = 1;
+  currentPage = 1;
 
-  displayedColumns: string[] = ['usuarios_id', 'nome', 'email', 'celular', 'actions'];
+  onPageChange(newPage: number): void {
+    this.currentPage = newPage;
+    // Lógica adicional para carregar os itens da nova página
+  }
+
+  label = "Usuário";
+  exemplo = "Gabriel";
+  usuarios:Observable<Usuario[]>
+  constructor(private usuarioService: UsuarioService){
+    this.usuarios = this.usuarioService.getUsers();
+  }
 
 }

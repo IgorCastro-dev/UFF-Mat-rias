@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from 'src/app/pages/model/usuario';
+import { Usuario } from 'src/app/model/usuario';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
@@ -18,6 +18,11 @@ export class UsuarioService {
         return usuarios.map((usuario)=>this.formatarUsuario(usuario))
       })
     );
+  }
+
+  deleteUsuario(usuarioId: number){
+    const url = `${this.apiUrl}/${usuarioId}`;
+    return this.http.delete<Usuario>(url);
   }
 
   private formatarUsuario(usuario: any): Usuario {

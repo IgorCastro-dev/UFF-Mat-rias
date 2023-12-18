@@ -1,6 +1,7 @@
 .area_logada_inicial {
   width: 100%;
   display: flex;
+  height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -16,6 +17,7 @@
 
 .container{
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: baseline;
   align-items: baseline;
@@ -24,14 +26,14 @@
   color: white;
   padding-top: 80px;
 }
-
-table{
-  background-color: #D9D9D9;
+app-tabela{
+  width: 100%;
 }
-th, td{
-  color: black;
-  text-align: center;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+.pagination{
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 mat-icon {
@@ -46,6 +48,9 @@ p{
   margin-top: 20px;
 }
 
+app-tabela-user-edit{
+  width: 100%;
+}
 
 
 @media (min-width: 600px){

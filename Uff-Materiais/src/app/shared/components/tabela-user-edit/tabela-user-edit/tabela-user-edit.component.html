@@ -11,6 +11,7 @@
         <th>Nome</th>
         <th>Email</th>
         <th>Celular</th>
+        <th>Tipo</th>
         <th>Ações</th>
       </tr>
     </thead>
@@ -20,11 +21,12 @@
         <td>{{ user.nome }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.celular }}</td>
+        <td>{{user.usuario_tipo}}</td>
         <td>
           <button mat-icon-button color="black" aria-label="Example icon button with a menu icon">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="black" aria-label="Example icon button with a menu icon">
+          <button mat-icon-button color="black" aria-label="Deleta usuario" (click)="deleteUsuario(user.usuarios_id)">
             <mat-icon>delete</mat-icon>
           </button>
         </td>
