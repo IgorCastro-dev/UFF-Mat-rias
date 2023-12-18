@@ -23,7 +23,7 @@
         <td>{{ user.celular }}</td>
         <td>{{user.usuario_tipo}}</td>
         <td>
-          <button mat-icon-button color="black" aria-label="Example icon button with a menu icon">
+          <button mat-icon-button color="black" aria-label="Editar Usuario" (click)="navegarParaAtualizaUsuario(user.usuarios_id)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button color="black" aria-label="Deleta usuario" (click)="deleteUsuario(user.usuarios_id)">

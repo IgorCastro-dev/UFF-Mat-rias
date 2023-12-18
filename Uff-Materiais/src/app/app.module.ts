@@ -19,6 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
         AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule
-    ]
+    ],
 })
 export class AppModule { }

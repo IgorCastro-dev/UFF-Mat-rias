@@ -1,10 +1,11 @@
 import { Observable } from 'rxjs';
-import { Component, Input, ViewChild , OnInit, ChangeDetectorRef} from '@angular/core';
+import { Component, Input, ViewChild , ChangeDetectorRef} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabela-user-edit',
@@ -18,7 +19,7 @@ export class TabelaUserEditComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private usuarioService: UsuarioService,private cdRef: ChangeDetectorRef  ) {}
+  constructor(private usuarioService: UsuarioService,private cdRef: ChangeDetectorRef,private router: Router) {}
 
   ngAfterViewInit() {
     this.users.subscribe(data => {
@@ -27,6 +28,10 @@ export class TabelaUserEditComponent {
       this.dataSource.sort = this.sort;
       this.cdRef.detectChanges();
     });
+  }
+
+  navegarParaAtualizaUsuario(usuarioId: number) {
+    this.router.navigate(['atualiza-usuario', usuarioId]);
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
