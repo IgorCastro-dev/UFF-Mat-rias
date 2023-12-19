@@ -1,8 +1,8 @@
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-import { Usuario } from '../../../model/usuario';
 
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Usuario } from '../../../model/usuario';
 
 @Component({
   selector: 'app-usuario-edit',
@@ -17,7 +17,6 @@ export class UsuarioEditComponent {
 
   onPageChange(newPage: number): void {
     this.currentPage = newPage;
-    // Lógica adicional para carregar os itens da nova página
   }
 
   label = "Usuário";

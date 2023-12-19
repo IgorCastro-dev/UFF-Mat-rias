@@ -4,5 +4,5 @@ export interface Usuario {
   email:string;
   senha:string;
   celular:string;
-  usuario_tipo:string;
+  usuarioTipo:string;
 }

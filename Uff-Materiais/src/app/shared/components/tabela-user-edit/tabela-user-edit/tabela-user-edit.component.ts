@@ -3,9 +3,9 @@ import { Component, Input, ViewChild , ChangeDetectorRef} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/model/usuario';
 
 @Component({
   selector: 'app-tabela-user-edit',

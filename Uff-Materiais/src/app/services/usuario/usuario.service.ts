@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Usuario } from 'src/app/model/usuario';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { Usuario } from 'src/app/model/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,11 @@ export class UsuarioService {
     return this.http.delete<Usuario>(url);
   }
 
+  updateUser(usuarioId: number, usuarioAtualizado:any){
+    const url = `${this.apiUrl}/${usuarioId}`;
+    return this.http.put(url,usuarioAtualizado);
+  }
+
   private formatarUsuario(usuario: any): Usuario {
     return {
       usuarios_id: usuario.usuariosId,
@@ -37,7 +43,7 @@ export class UsuarioService {
       email: usuario.email,
       senha: usuario.senha,
       celular: usuario.celular,
-      usuario_tipo: usuario.usuarioTipo.nome,
+      usuarioTipo: usuario.usuarioTipo.nome,
     };
   }
 }
