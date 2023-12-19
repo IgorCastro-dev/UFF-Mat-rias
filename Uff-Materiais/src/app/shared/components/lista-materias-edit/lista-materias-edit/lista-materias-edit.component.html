@@ -1,0 +1,24 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Usuário</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. João" #input>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <ul class="user-list">
+    <li *ngFor="let user of dataSource.connect() | async" class="custom-list-item">
+      {{ user.nome }}
+      <div class="botoes">
+        <button mat-icon-button aria-label="Editar Usuario" (click)="navegarParaAtualizaUsuario(user.usuarios_id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button aria-label="Deleta usuario" (click)="deleteUsuario(user.usuarios_id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+  <mat-paginator
+              [pageSize]="10"
+              aria-label="Select page">
+</mat-paginator>
+</div>

@@ -1,7 +1,0 @@
-<div class="pagination">
-  <button (click)="onPageClick(currentPage - 1)" [disabled]="currentPage === 1">&lt;</button>
-  <ng-container *ngFor="let page of pages">
-    <button (click)="onPageClick(page)" [class.active]="currentPage === page">{{ page }}</button>
-  </ng-container>
-  <button (click)="onPageClick(currentPage + 1)" [disabled]="currentPage === totalPages">&gt;</button>
-</div>

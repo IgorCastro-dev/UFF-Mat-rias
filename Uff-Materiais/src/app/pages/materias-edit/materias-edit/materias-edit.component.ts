@@ -1,15 +1,14 @@
-import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario } from '../../../model/usuario';
+import { Usuario } from 'src/app/model/usuario';
+import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 @Component({
-  selector: 'app-usuario-edit',
-  templateUrl: './usuario-edit.component.html',
-  styleUrls: ['./usuario-edit.component.scss']
+  selector: 'app-materias-edit',
+  templateUrl: './materias-edit.component.html',
+  styleUrl: './materias-edit.component.scss'
 })
-export class UsuarioEditComponent {
+export class MateriasEditComponent {
   totalCount = 100;
   pageSize = 10;
   siblingCount = 1;
@@ -24,8 +23,6 @@ export class UsuarioEditComponent {
   usuarios:Observable<Usuario[]>
   constructor(private usuarioService: UsuarioService){
     this.usuarios = this.usuarioService.getUsers();
-    console.log("usuarios:")
-    console.log("usuarios:"+this.usuarios.subscribe())
   }
 
 }

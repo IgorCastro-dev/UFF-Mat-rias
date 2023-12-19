@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PaginationComponent } from './pagination/pagination.component';
+import { ListaMateriasEditComponent } from './lista-materias-edit/lista-materias-edit.component';
 import { MaterialModule } from '../../material/material.module';
 
 
 
 @NgModule({
   declarations: [
-    PaginationComponent
+    ListaMateriasEditComponent
   ],
   imports: [
     CommonModule,
     MaterialModule
   ],
   exports:[
-    PaginationComponent
+    ListaMateriasEditComponent
   ]
 })
-export class PaginationModule { }
+export class ListaMateriasEditModule { }

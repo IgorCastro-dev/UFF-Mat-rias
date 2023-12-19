@@ -5,9 +5,10 @@ const routes: Routes = [
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
   { path: 'area-logada-inicial', loadChildren: () => import('./pages/area-logada-inicial/area-logada-inicial.module').then(m => m.AreaLogadaInicialModule) },
   { path: 'usuario-edit', loadChildren: () => import('./pages/usuario-edit/usuario-edit.module').then(m => m.UsuarioEditModule)},
-  { path: 'atualiza-usuario/:id', loadChildren: () => import('./pages/atualiza-usuario/atualiza-usuario.module').then(m => m.AtualizaUsuarioModule)}
-];
+  { path: 'atualiza-usuario/:id', loadChildren: () => import('./pages/atualiza-usuario/atualiza-usuario.module').then(m => m.AtualizaUsuarioModule)},
+  { path: 'materias-edit', loadChildren: () => import('./pages/materias-edit/materias-edit.module').then(m => m.MateriasEditModule)}
 
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
