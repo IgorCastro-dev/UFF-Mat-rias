@@ -1,0 +1,35 @@
+<div class="atualiza-usuario">
+  <app-nav-bar></app-nav-bar>
+  <app-logo></app-logo>
+  <p style="color: white;">Atualize o usuário</p>
+  <form class="example-form" (ngSubmit)="atualizarUsuario()" [formGroup]="formGroup">
+
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput name="inputName" required formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select name="selectTipo" required formControlName="tipoSelecionado">
+        <mat-option value="one">Admin</mat-option>
+        <mat-option value="two">User</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="pat@example.com" required name="inputEmail" formControlName="email">
+      @if (emailFormControl .invalid) {
+        <mat-error>{{getErrorMessage()}}</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Celular</mat-label>
+      <input matInput mask="(00) 0 0000-0000" type="tel" name="inputCel" required  formControlName="celular">
+    </mat-form-field>
+
+    <app-button [nome]="nomeBotao" type="submit"></app-button>
+  </form>
+</div>
+<app-footer></app-footer>

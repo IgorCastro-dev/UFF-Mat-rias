@@ -1,0 +1,31 @@
+.example-form {
+  display: flex;
+  flex-direction: column;
+  line-height: 100px;
+  width:100%;
+  max-width: 500px;
+}
+
+.atualiza-usuario {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media (min-width: 600px){
+  .logo_logado{
+    display: none;
+  }
+  app-footer{
+    display: none;
+  }
+}
+@media (max-width: 600px){
+  app-nav-bar{
+    display: none;
+  }
+}
+
