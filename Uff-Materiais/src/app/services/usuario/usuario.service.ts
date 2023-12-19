@@ -19,6 +19,11 @@ export class UsuarioService {
       })
     );
   }
+  getUserById(usuarioId: number): Observable<Usuario>{
+    return this.http.get<Usuario>(`${this.apiUrl}/${usuarioId}`).pipe(
+      map((usuario: Usuario) => this.formatarUsuario(usuario))
+    );
+  }
 
   deleteUsuario(usuarioId: number){
     const url = `${this.apiUrl}/${usuarioId}`;
