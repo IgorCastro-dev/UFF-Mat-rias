@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AreaLogadaInicialComponent {
   nomeBotao1 = "editar usuários";
-  nomeBotao2 = "editar conteúdo";
+  nomeBotao2 = "editar matéria";
   color = "accent";
 }
