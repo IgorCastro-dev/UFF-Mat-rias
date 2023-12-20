@@ -1,3 +1,4 @@
+import { ButtonModule } from 'src/app/shared/components/button/button.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

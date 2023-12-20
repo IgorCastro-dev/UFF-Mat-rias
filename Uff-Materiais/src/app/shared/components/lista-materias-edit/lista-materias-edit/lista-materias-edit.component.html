@@ -1,24 +1,40 @@
 <div class="container">
   <mat-form-field>
-    <mat-label>Usuário</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. João" #input>
+    <mat-label>Matéria</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. QUALIDADE E TESTE" #input>
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
-  <ul class="user-list">
-    <li *ngFor="let user of dataSource.connect() | async" class="custom-list-item">
-      {{ user.nome }}
-      <div class="botoes">
-        <button mat-icon-button aria-label="Editar Usuario" (click)="navegarParaAtualizaUsuario(user.usuarios_id)">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button aria-label="Deleta usuario" (click)="deleteUsuario(user.usuarios_id)">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
-    </li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let materia of dataSource.connect() | async">
+        <td>{{ materia.codigo }}</td>
+        <td>{{ materia.nomeMateria }}</td>
+        <td>
+          <button mat-icon-button color="black" aria-label="Editar materia">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="black" aria-label="Deleta materia">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <mat-paginator
               [pageSize]="10"
               aria-label="Select page">
 </mat-paginator>
+<div class="container-botao">
+  <button class="adicionar-materia-btn">
+    <p>Adicionar Matéria</p>
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</div>
 </div>

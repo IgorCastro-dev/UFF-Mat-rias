@@ -4,7 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Materia } from 'src/app/model/materia';
 import { Usuario } from 'src/app/model/usuario';
+import { MateriaService } from 'src/app/services/materia/materia.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 @Component({
@@ -13,20 +15,19 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
   styleUrl: './lista-materias-edit.component.scss'
 })
 export class ListaMateriasEditComponent {
-  @Input() users: Observable<Usuario[]> = new Observable<Usuario[]>();
-  dataSource: MatTableDataSource<Usuario> = new MatTableDataSource<Usuario>();
+  @Input() materias: Observable<Materia[]> = new Observable<Materia[]>();
+  dataSource: MatTableDataSource<Materia> = new MatTableDataSource<Materia>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private usuarioService: UsuarioService,private cdRef: ChangeDetectorRef,private router: Router) {
+  constructor(private materiaService: MateriaService,private cdRef: ChangeDetectorRef,private router: Router) {
 
   }
-  // this.users.subscribe(data => {console.log(data)})
 
   ngAfterViewInit() {
-    this.users.subscribe(data => {
-      this.dataSource.data = data;
+    this.materias.subscribe(data => {
+      this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.cdRef.detectChanges();
@@ -44,9 +45,9 @@ export class ListaMateriasEditComponent {
       this.dataSource.paginator.firstPage();
     }
   }
-  deleteUsuario(usuarioId: number) {
-    this.usuarioService.deleteUsuario(usuarioId).subscribe(() => {
-      this.dataSource.data = this.dataSource.data.filter(user => user.usuarios_id !== usuarioId);
-    });
-  }
+  // deleteUsuario(usuarioId: number) {
+  //   this.usuarioService.deleteUsuario(usuarioId).subscribe(() => {
+  //     this.dataSource.data = this.dataSource.data.filter(user => user.usuarios_id !== usuarioId);
+  //   });
+  // }
 }

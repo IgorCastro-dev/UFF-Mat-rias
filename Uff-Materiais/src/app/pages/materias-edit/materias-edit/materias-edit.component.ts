@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Usuario } from 'src/app/model/usuario';
-import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { Materia } from 'src/app/model/materia';
+import { MateriaService } from 'src/app/services/materia/materia.service';
 
 @Component({
   selector: 'app-materias-edit',
@@ -20,9 +20,9 @@ export class MateriasEditComponent {
 
   label = "Usuário";
   exemplo = "Gabriel";
-  usuarios:Observable<Usuario[]>
-  constructor(private usuarioService: UsuarioService){
-    this.usuarios = this.usuarioService.getUsers();
+  materias:Observable<Materia[]>
+  constructor(private materiaService: MateriaService){
+    this.materias = this.materiaService.getMaterias();
   }
 
 }

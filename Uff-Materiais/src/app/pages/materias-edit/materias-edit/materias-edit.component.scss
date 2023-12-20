@@ -15,6 +15,26 @@
   justify-content: space-between;
 }
 
+
+.adicionar-materia-btn {
+  background-color: #4CAF50; /* Cor verde de exemplo, ajuste conforme necessário */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.adicionar-materia-btn:hover {
+  background-color: #45a049; /* Cor verde mais escura ao passar o mouse */
+}
+
+.container-botao{
+  width: 100%;
+  align-items: center;
+}
+
 .container{
   width: 100%;
   height: 100%;
