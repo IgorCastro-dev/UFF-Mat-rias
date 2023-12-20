@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'area-logada-inicial', loadChildren: () => import('./pages/area-logada-inicial/area-logada-inicial.module').then(m => m.AreaLogadaInicialModule) },
   { path: 'usuario-edit', loadChildren: () => import('./pages/usuario-edit/usuario-edit.module').then(m => m.UsuarioEditModule)},
   { path: 'atualiza-usuario/:id', loadChildren: () => import('./pages/atualiza-usuario/atualiza-usuario.module').then(m => m.AtualizaUsuarioModule)},
-  { path: 'materias-edit', loadChildren: () => import('./pages/materias-edit/materias-edit.module').then(m => m.MateriasEditModule)}
+  { path: 'materias-edit', loadChildren: () => import('./pages/materias-edit/materias-edit.module').then(m => m.MateriasEditModule)},
+  { path: 'atualiza-materia/:id', loadChildren: () => import('./pages/atualiza-materia/atualiza-materia.module').then(m => m.AtualizaMateriaModule)},
 
 ];
 @NgModule({
