@@ -19,4 +19,9 @@ export class MateriaService {
   getMateriaById(materiaId: number):Observable<Materia>{
     return this.http.get<Materia>(`${this.apiUrl}/${materiaId}`);
   }
+
+  updateMateria(materiaId: number,materiaAtualizada:any){
+    const url = `${this.apiUrl}/${materiaId}`;
+    return this.http.put(url,materiaAtualizada);
+  }
 }

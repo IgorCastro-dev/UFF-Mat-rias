@@ -44,10 +44,8 @@ export class AtualizaUsuarioComponent {
   atualizarUsuario() {
     if (this.formGroup.valid) {
       const usuarioAtualizado = this.formGroup.value;
-
       usuarioAtualizado.usuarioTipo = usuarioAtualizado.tipoSelecionado === 'one' ? 'ADMIN' : 'USER';
       delete usuarioAtualizado.tipoSelecionado;
-      console.log(usuarioAtualizado);
       this.usuarioService.updateUser(this.usuarioId, usuarioAtualizado).subscribe({
         next: () => {
           console.log('Usuário atualizado com sucesso!');

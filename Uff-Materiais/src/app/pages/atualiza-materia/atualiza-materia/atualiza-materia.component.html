@@ -2,7 +2,7 @@
   <app-nav-bar></app-nav-bar>
   <app-logo></app-logo>
   <p style="color: white;">Atualize a matéria</p>
-  <form class="example-form" [formGroup]="formGroup">
+  <form class="example-form" [formGroup]="formGroup" (ngSubmit)="atualizarMateria()">
 
     <mat-form-field>
       <mat-label>Nome da Matéria</mat-label>

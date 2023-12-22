@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Materia } from 'src/app/model/materia';
 import { MateriaService } from 'src/app/services/materia/materia.service';
 
@@ -14,7 +14,7 @@ export class AtualizaMateriaComponent {
   nomeBotao = "atualizar";
   materiaId: number = 3;
 
-  constructor(private fb: FormBuilder,private materiaService: MateriaService,private route: ActivatedRoute){
+  constructor(private fb: FormBuilder,private materiaService: MateriaService,private route: ActivatedRoute,private router: Router){
 
     this.route.params.subscribe(params => {
       const materiaId = params['id'];
@@ -34,6 +34,21 @@ export class AtualizaMateriaComponent {
         codigo: materia.codigo
       });
     });
+  }
+
+  atualizarMateria(){
+    if (this.formGroup.valid) {
+      const materiaAtualizada = this.formGroup.value;
+      this.materiaService.updateMateria(this.materiaId,materiaAtualizada).subscribe({
+        next: () => {
+          this.router.navigate(['materias-edit']);
+        },
+        error: (error) => {
+              console.error('Erro ao atualizar usuário:', error);
+              // Trate o erro conforme necessário
+            }
+      });
+    }
   }
 
 }
