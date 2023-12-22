@@ -2,11 +2,11 @@
   <app-nav-bar></app-nav-bar>
   <app-logo></app-logo>
   <p style="color: white;">Atualize a matéria</p>
-  <form class="example-form">
+  <form class="example-form" [formGroup]="formGroup">
 
     <mat-form-field>
-      <mat-label>Nome</mat-label>
-      <input matInput name="inputName" required formControlName="nome">
+      <mat-label>Nome da Matéria</mat-label>
+      <input matInput name="inputName" required formControlName="nome" [formGroup]="formGroup">
     </mat-form-field>
 
     <mat-form-field>

@@ -17,7 +17,7 @@
         <td>{{ materia.codigo }}</td>
         <td>{{ materia.nomeMateria }}</td>
         <td>
-          <button mat-icon-button color="black" aria-label="Editar materia">
+          <button mat-icon-button color="black" aria-label="Editar materia" (click)="navegarParaAtualizaMateria(materia.materiasId)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button color="black" aria-label="Deleta materia">

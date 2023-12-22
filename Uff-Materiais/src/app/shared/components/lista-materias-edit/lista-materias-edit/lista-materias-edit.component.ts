@@ -5,9 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Materia } from 'src/app/model/materia';
-import { Usuario } from 'src/app/model/usuario';
 import { MateriaService } from 'src/app/services/materia/materia.service';
-import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 @Component({
   selector: 'app-lista-materias-edit',
@@ -34,8 +32,8 @@ export class ListaMateriasEditComponent {
     });
   }
 
-  navegarParaAtualizaUsuario(usuarioId: number) {
-    this.router.navigate(['atualiza-usuario', usuarioId]);
+  navegarParaAtualizaMateria(materiaId: number) {
+    this.router.navigate(['atualiza-materia', materiaId]);
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

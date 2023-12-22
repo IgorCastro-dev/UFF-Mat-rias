@@ -16,7 +16,7 @@ export class AtualizaUsuarioComponent {
   formGroup: FormGroup;
 
   usuarioId!: number;
-  constructor(private usuarioService: UsuarioService,private route: ActivatedRoute,private router: Router,private fb: FormBuilder,){
+  constructor(private usuarioService: UsuarioService,private route: ActivatedRoute,private router: Router,private fb: FormBuilder){
     this.route.params.subscribe(params => {
       const usuarioId = params['id'];
       this.usuarioId = usuarioId;
@@ -63,7 +63,6 @@ export class AtualizaUsuarioComponent {
 
   nomeBotao = "atualizar";
   emailFormControl  = new FormControl('', [Validators.required, Validators.email]);
-  hide = true;
 
   verificaTipo(tipo: string): string {
     return tipo.toLowerCase() === 'admin' ? 'one' : 'two';
