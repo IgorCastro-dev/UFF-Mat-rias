@@ -1,0 +1,20 @@
+<div class="salva-materia">
+  <app-nav-bar></app-nav-bar>
+  <app-logo></app-logo>
+  <p style="color: white;">Salve a matéria</p>
+  <form class="example-form" [formGroup]="formGroup"  (ngSubmit)="salvarMateria()">
+
+    <mat-form-field>
+      <mat-label>Nome da Matéria</mat-label>
+      <input matInput name="inputName" required formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Código</mat-label>
+      <input matInput name="inputCodigo" required  formControlName="codigo">
+    </mat-form-field>
+
+    <app-button [nome]="nomeBotao" type="submit"></app-button>
+  </form>
+</div>
+<app-footer></app-footer>
