@@ -48,21 +48,36 @@
 
 
 
+
 mat-form-field{
   width: 100%;
 }
 
 table{
   width: 100%;
-  background-color: #d9d9d9;
   text-align: center;
   border-collapse: collapse;
 }
-
-td, th{
+tbody{
   background-color: #d9d9d9;
+}
+td, th{
   color: black;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+th{
+  background-color: #d9d9d9;
+}
+
+tr:hover {
+  cursor: pointer;
+  background-color: #939393;
+}
+
+tr.selected {
+  background-color: #4CAF50; /* Cor de fundo quando selecionado */
+  color: white; /* Cor do texto quando selecionado */
 }
 
 .ng-star-inserted{

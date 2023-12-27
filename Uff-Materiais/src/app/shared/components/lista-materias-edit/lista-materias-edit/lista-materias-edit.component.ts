@@ -43,9 +43,13 @@ export class ListaMateriasEditComponent {
       this.dataSource.paginator.firstPage();
     }
   }
-  // deleteUsuario(usuarioId: number) {
-  //   this.usuarioService.deleteUsuario(usuarioId).subscribe(() => {
-  //     this.dataSource.data = this.dataSource.data.filter(user => user.usuarios_id !== usuarioId);
-  //   });
-  // }
+  deletaMateria(materiaId: number){
+    this.materiaService.deletaMateria(materiaId).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter(materia => materia.materiasId !== materiaId);
+    })
+  }
+
+  goToSalvarMateria(){
+    this.router.navigate(['salva-materia']);
+  }
 }

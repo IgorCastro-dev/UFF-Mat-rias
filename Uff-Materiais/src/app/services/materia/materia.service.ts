@@ -12,6 +12,11 @@ export class MateriaService {
 
   constructor(private http:HttpClient) { }
 
+  salvarMateria(novaMateria:any){
+    const url = `${this.apiUrl}`;
+    return this.http.post(url,novaMateria);
+  }
+
   getMaterias(): Observable<Materia[]>{
     return this.http.get<Materia[]>(`${this.apiUrl}`);
   }
@@ -23,5 +28,9 @@ export class MateriaService {
   updateMateria(materiaId: number,materiaAtualizada:any){
     const url = `${this.apiUrl}/${materiaId}`;
     return this.http.put(url,materiaAtualizada);
+  }
+
+  deletaMateria(materiaId: number){
+    return this.http.delete(`${this.apiUrl}/${materiaId}`)
   }
 }

@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'atualiza-usuario/:id', loadChildren: () => import('./pages/atualiza-usuario/atualiza-usuario.module').then(m => m.AtualizaUsuarioModule)},
   { path: 'materias-edit', loadChildren: () => import('./pages/materias-edit/materias-edit.module').then(m => m.MateriasEditModule)},
   { path: 'atualiza-materia/:id', loadChildren: () => import('./pages/atualiza-materia/atualiza-materia.module').then(m => m.AtualizaMateriaModule)},
-
+  { path: 'salva-materia', loadChildren: () => import('./pages/salva-materia/salva-materia.module').then(m => m.SalvaMateriaModule)}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
