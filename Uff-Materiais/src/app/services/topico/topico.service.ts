@@ -15,4 +15,8 @@ export class TopicoService {
   getTopicos(): Observable<Topico[]>{
     return this.http.get<Topico[]>(`${this.apiUrl}`);
   }
+
+  getTopicoById(topicoId:number): Observable<Topico>{
+    return this.http.get<Topico>(`${this.apiUrl}/${topicoId}`);
+  }
 }

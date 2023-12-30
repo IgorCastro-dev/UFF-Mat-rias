@@ -46,9 +46,6 @@
   justify-content: center;
 }
 
-
-
-
 mat-form-field{
   width: 100%;
 }
@@ -73,11 +70,6 @@ th{
 tr:hover {
   cursor: pointer;
   background-color: #939393;
-}
-
-tr.selected {
-  background-color: #4CAF50; /* Cor de fundo quando selecionado */
-  color: white; /* Cor do texto quando selecionado */
 }
 
 .ng-star-inserted{

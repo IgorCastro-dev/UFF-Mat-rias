@@ -8,7 +8,7 @@
   <li *ngFor="let topico of dataSource.connect() | async" class="custom-list-item">
     {{ topico.secaoMateriasNome }}
     <div class="botoes">
-      <button mat-icon-button aria-label="Editar Usuario" >
+      <button mat-icon-button aria-label="Editar Usuario" (click)="goToAtualizaTopico(topico.secaoMateriasId)">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-icon-button aria-label="Deleta usuario" >

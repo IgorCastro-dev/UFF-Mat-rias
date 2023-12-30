@@ -2,10 +2,9 @@ import { ChangeDetectorRef, Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Topico } from 'src/app/model/topico';
-import { TopicoService } from 'src/app/services/topico/topico.service';
 
 @Component({
   selector: 'app-lista-topicos-edit',
@@ -19,7 +18,7 @@ export class ListaTopicosEditComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private topicoService: TopicoService,private cdRef: ChangeDetectorRef) {}
+  constructor(private cdRef: ChangeDetectorRef,private router: Router) {}
 
   ngAfterViewInit() {
     this.topicos.subscribe(data => {
@@ -37,5 +36,9 @@ export class ListaTopicosEditComponent {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  goToAtualizaTopico(topicoId:number){
+    this.router.navigate(['atualiza-topico',topicoId]);
   }
 }

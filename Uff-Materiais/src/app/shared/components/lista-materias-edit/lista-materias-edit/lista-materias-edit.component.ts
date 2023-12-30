@@ -52,4 +52,8 @@ export class ListaMateriasEditComponent {
   goToSalvarMateria(){
     this.router.navigate(['salva-materia']);
   }
+
+  navegarParaTopicos(materiaId: number){
+    this.router.navigate(['topico-edit',materiaId]);
+  }
 }
