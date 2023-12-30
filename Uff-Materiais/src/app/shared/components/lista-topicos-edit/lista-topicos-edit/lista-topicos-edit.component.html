@@ -1,0 +1,26 @@
+<div class="container">
+<mat-form-field>
+  <mat-label>Tópico</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. QUALIDADE DO PROCESSO" #input>
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<ul class="user-list">
+  <li *ngFor="let topico of dataSource.connect() | async" class="custom-list-item">
+    {{ topico.secaoMateriasNome }}
+    <div class="botoes">
+      <button mat-icon-button aria-label="Editar Usuario" >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Deleta usuario" >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </li>
+</ul>
+<div class="container-botao">
+  <button class="adicionar-topico-btn">
+    <p>Adicionar Tópico</p>
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</div>
+</div>

@@ -1,0 +1,66 @@
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.custom-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #d9d9d9;
+  margin-bottom: 20px;
+  width: 100%;
+  color: black;
+}
+.container{
+  width: 100%;
+  overflow-x: auto;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.adicionar-topico-btn {
+  display: flex;
+  align-items: center;
+  background-color: #4CAF50; /* Cor verde de exemplo, ajuste conforme necessário */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 300px;
+  height: 60px;
+  justify-content: space-around;
+}
+.adicionar-topico-btn p {
+  margin: 0;
+  font-weight: bold;
+  font-size: large;
+}
+
+.adicionar-topico-btn mat-icon {
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+}
+
+.adicionar-topico-btn:hover {
+  background-color: #45a049;
+}
+
+.container-botao{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.custom-list-item:hover{
+  cursor: pointer;
+  background-color: #939393;
+}

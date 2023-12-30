@@ -1,0 +1,88 @@
+.area_logada_inicial {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+}
+.logo_logado{
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  justify-content: space-between;
+}
+
+
+.adicionar-materia-btn {
+  background-color: #4CAF50; /* Cor verde de exemplo, ajuste conforme necessário */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.adicionar-materia-btn:hover {
+  background-color: #45a049; /* Cor verde mais escura ao passar o mouse */
+}
+
+.container-botao{
+  width: 100%;
+  align-items: center;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  flex-direction: column;
+  min-height: 92vh;
+  color: white;
+  padding-top: 80px;
+}
+app-lista-topicos-edit{
+  width: 100%;
+}
+.pagination{
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+mat-icon {
+  vertical-align:text-bottom !important;
+}
+
+app-pesquisa{
+  width: 100%;
+}
+
+p{
+  margin-top: 20px;
+}
+
+app-tabela-user-edit{
+  width: 100%;
+}
+
+
+@media (min-width: 600px){
+  .logo_logado{
+    display: none;
+  }
+  app-footer{
+    display: none;
+  }
+}
+@media (max-width: 600px){
+  app-nav-bar{
+    display: none;
+  }
+}
