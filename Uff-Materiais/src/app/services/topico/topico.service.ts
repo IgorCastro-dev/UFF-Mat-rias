@@ -16,7 +16,16 @@ export class TopicoService {
     return this.http.get<Topico[]>(`${this.apiUrl}`);
   }
 
+  getTopicosByMateria(materiaId:number): Observable<Topico[]>{
+    return this.http.get<Topico[]>(`${this.apiUrl}/materia/${materiaId}`);
+  }
+
   getTopicoById(topicoId:number): Observable<Topico>{
     return this.http.get<Topico>(`${this.apiUrl}/${topicoId}`);
+  }
+
+  updateTopico(topicoId:number, topicoAtualizado:any){
+    const url = `${this.apiUrl}/${topicoId}`;
+    return this.http.put(url,topicoAtualizado);
   }
 }

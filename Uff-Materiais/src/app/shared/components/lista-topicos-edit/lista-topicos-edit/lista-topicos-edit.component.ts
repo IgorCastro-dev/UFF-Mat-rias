@@ -13,6 +13,7 @@ import { Topico } from 'src/app/model/topico';
 })
 export class ListaTopicosEditComponent {
   @Input() topicos: Observable<Topico[]> = new Observable<Topico[]>();
+  @Input() materiaId!: number;
   dataSource: MatTableDataSource<Topico> = new MatTableDataSource<Topico>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -39,6 +40,6 @@ export class ListaTopicosEditComponent {
   }
 
   goToAtualizaTopico(topicoId:number){
-    this.router.navigate(['atualiza-topico',topicoId]);
+    this.router.navigate([`topico-edit/${this.materiaId}/atualiza-topico/${topicoId}`]);
   }
 }

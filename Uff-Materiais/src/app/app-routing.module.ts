@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'atualiza-materia/:id', loadChildren: () => import('./pages/atualiza-materia/atualiza-materia.module').then(m => m.AtualizaMateriaModule)},
   { path: 'salva-materia', loadChildren: () => import('./pages/salva-materia/salva-materia.module').then(m => m.SalvaMateriaModule)},
   { path: 'topico-edit/:id', loadChildren: () => import('./pages/topico-edit/topico-edit.module').then(m => m.TopicoEditModule)},
-  { path: 'atualiza-topico/:id', loadChildren: () => import('./pages/atualiza-topico/atualiza-topico.module').then(m => m.AtualizaTopicoModule)}
+  { path: 'topico-edit/:materia-id/atualiza-topico/:topico-id', loadChildren: () => import('./pages/atualiza-topico/atualiza-topico.module').then(m => m.AtualizaTopicoModule)}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

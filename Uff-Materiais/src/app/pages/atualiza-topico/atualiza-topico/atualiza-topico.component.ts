@@ -13,24 +13,42 @@ export class AtualizaTopicoComponent {
   formGroup: FormGroup;
   nomeBotao = "atualizar";
   topicoId: number = 3;
+  materiaId: number = 3;
 
   constructor(private fb: FormBuilder,private topicoService:TopicoService,private route: ActivatedRoute,private router: Router){
 
     this.route.params.subscribe(params => {
-      const topicoId = params['id'];
+      const topicoId = params['topico-id'];
+      const materiaId = params['materia-id'];
       this.topicoId = topicoId;
+      this.materiaId = materiaId;
     });
 
     this.formGroup = this.fb.group({
-      nome: ['Tópico Exemplo', Validators.required]
+      secaoMateriasNome: ['Tópico Exemplo', Validators.required]
     });
   }
 
   ngOnInit(){
     this.topicoService.getTopicoById(this.topicoId).subscribe((topico: Topico) => {
       this.formGroup.patchValue({
-        nome: topico.secaoMateriasNome
+        secaoMateriasNome: topico.secaoMateriasNome
       });
     });
+  }
+
+  atualizarTopico(){
+    if (this.formGroup.valid) {
+      const topicoAtualizado = this.formGroup.value;
+      this.topicoService.updateTopico(this.topicoId,topicoAtualizado).subscribe({
+        next: () => {
+          this.router.navigate([`topico-edit/${this.materiaId}`]);
+        },
+        error: (error) => {
+              console.error('Erro ao atualizar usuário:', error);
+              // Trate o erro conforme necessário
+            }
+      });
+    }
   }
 }
