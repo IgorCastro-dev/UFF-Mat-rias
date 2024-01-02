@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Topico } from 'src/app/model/topico';
+import { TopicoService } from 'src/app/services/topico/topico.service';
 
 @Component({
   selector: 'app-lista-topicos-edit',
@@ -19,7 +20,7 @@ export class ListaTopicosEditComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private cdRef: ChangeDetectorRef,private router: Router) {}
+  constructor(private topicoService:TopicoService,private cdRef: ChangeDetectorRef,private router: Router) {}
 
   ngAfterViewInit() {
     this.topicos.subscribe(data => {
@@ -41,6 +42,12 @@ export class ListaTopicosEditComponent {
 
   goToAtualizaTopico(topicoId:number){
     this.router.navigate([`topico-edit/${this.materiaId}/atualiza-topico/${topicoId}`]);
+  }
+
+  goToDeletaTopico(topicoId:number){
+    this.topicoService.deletaTopicoPorId(topicoId).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter(topico => topico.secaoMateriasId !== topicoId);
+    })
   }
 
   goToSalvarTopico(){
