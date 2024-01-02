@@ -1,24 +1,36 @@
 <div class="container">
-<mat-form-field>
-  <mat-label>Tópico</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. QUALIDADE DO PROCESSO" #input>
-  <mat-icon matSuffix>search</mat-icon>
-</mat-form-field>
-<ul class="user-list">
-  <li *ngFor="let topico of dataSource.connect() | async" class="custom-list-item">
-    {{ topico.secaoMateriasNome }}
-    <div class="botoes">
-      <button mat-icon-button aria-label="Editar Usuario" (click)="goToAtualizaTopico(topico.secaoMateriasId)">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-icon-button aria-label="Deleta usuario" >
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-  </li>
-</ul>
+  <mat-form-field>
+    <mat-label>Tópico</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. QUALIDADE DO PRODUTO" #input>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topico of dataSource.connect() | async">
+        <td>{{ topico.secaoMateriasNome }}</td>
+        <td>
+          <button mat-icon-button color="black" aria-label="Editar topico" (click)="goToAtualizaTopico(topico.secaoMateriasId)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="black" aria-label="Deleta topico">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+              [pageSize]="10"
+              aria-label="Select page">
+</mat-paginator>
 <div class="container-botao">
-  <button class="adicionar-topico-btn">
+  <button class="adicionar-topico-btn" (click)="goToSalvarTopico()">
     <p>Adicionar Tópico</p>
     <mat-icon>add_circle</mat-icon>
   </button>

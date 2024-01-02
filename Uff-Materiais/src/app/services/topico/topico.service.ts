@@ -28,4 +28,13 @@ export class TopicoService {
     const url = `${this.apiUrl}/${topicoId}`;
     return this.http.put(url,topicoAtualizado);
   }
+
+  salvaTopicoPorMateria(materiId:number, topico:any){
+    const url = `${this.apiUrl}/${materiId}`;
+    return this.http.post(url,topico);
+  }
+
+  deletaTopicoPorId(topicoId:number){
+    return this.http.delete(`${this.apiUrl}/${topicoId}`);
+  }
 }

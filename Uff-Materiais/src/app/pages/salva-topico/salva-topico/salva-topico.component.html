@@ -1,0 +1,15 @@
+<div class="salva-topico">
+  <app-nav-bar></app-nav-bar>
+  <app-logo></app-logo>
+  <p style="color: white;">Atualize o Tópico</p>
+  <form class="example-form" [formGroup]="formGroup" (ngSubmit)="salvarTopico()">
+
+    <mat-form-field>
+      <mat-label>Nome do Tópico</mat-label>
+      <input matInput name="inputName" required formControlName="secaoMateriasNome">
+    </mat-form-field>
+
+    <app-button [nome]="nomeBotao" type="submit"></app-button>
+  </form>
+</div>
+<app-footer></app-footer>

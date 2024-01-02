@@ -42,4 +42,8 @@ export class ListaTopicosEditComponent {
   goToAtualizaTopico(topicoId:number){
     this.router.navigate([`topico-edit/${this.materiaId}/atualiza-topico/${topicoId}`]);
   }
+
+  goToSalvarTopico(){
+    this.router.navigate([`topico-edit/salva-topico/${this.materiaId}`]);
+  }
 }

@@ -13,9 +13,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let materia of dataSource.connect() | async" (click)="navegarParaTopicos(materia.materiasId)">
+      <tr *ngFor="let materia of dataSource.connect() | async">
         <td>{{ materia.codigo }}</td>
-        <td>{{ materia.nomeMateria }}</td>
+        <td (click)="navegarParaTopicos(materia.materiasId)">{{ materia.nomeMateria }}</td>
         <td>
           <button mat-icon-button color="black" aria-label="Editar materia" (click)="navegarParaAtualizaMateria(materia.materiasId)">
             <mat-icon>edit</mat-icon>

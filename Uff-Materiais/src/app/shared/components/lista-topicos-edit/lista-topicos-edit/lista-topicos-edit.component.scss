@@ -1,26 +1,12 @@
-.user-list {
-  list-style: none;
-  padding: 0;
-}
 
-.custom-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #d9d9d9;
-  margin-bottom: 20px;
-  width: 100%;
-  color: black;
-}
 .container{
-  width: 100%;
   overflow-x: auto;
   width: 100%;
   margin-bottom: 60px;
 }
 
-mat-form-field{
-  width: 100%;
+.botoes{
+  padding-right: 20px;
 }
 
 .adicionar-topico-btn {
@@ -60,7 +46,36 @@ mat-form-field{
   justify-content: center;
 }
 
-.custom-list-item:hover{
+mat-form-field{
+  width: 100%;
+}
+
+table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+td, th{
+  color: black;
+
+}
+tr {
+  background-color: #d9d9d9;
+}
+th{
+  border-bottom: 1px solid #2D2929;
+}
+
+td{
+  border-bottom: 15px solid #2D2929;
+}
+
+tr:hover {
   cursor: pointer;
   background-color: #939393;
 }
+
+.ng-star-inserted{
+  border: none;
+}
+
