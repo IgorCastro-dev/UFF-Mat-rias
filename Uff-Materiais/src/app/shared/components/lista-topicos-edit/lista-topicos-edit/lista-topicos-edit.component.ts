@@ -53,4 +53,8 @@ export class ListaTopicosEditComponent {
   goToSalvarTopico(){
     this.router.navigate([`topico-edit/salva-topico/${this.materiaId}`]);
   }
+
+  navegarParaConteudos(topicoId: number){
+    this.router.navigate(['conteudo-edit',topicoId]);
+  }
 }

@@ -16,7 +16,7 @@ export class TopicoEditComponent {
   topicos!: Observable<Topico[]>;
   constructor(private topicoService:TopicoService,private route: ActivatedRoute){
     this.route.params.subscribe(params => {
-      const materiaId = params['id'];
+      const materiaId = params['materiaId'];
       this.materiaId = materiaId;
       this.topicos = this.topicoService.getTopicosByMateria(materiaId);
     });

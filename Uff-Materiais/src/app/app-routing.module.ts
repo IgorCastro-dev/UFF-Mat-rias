@@ -9,9 +9,10 @@ const routes: Routes = [
   { path: 'materias-edit', loadChildren: () => import('./pages/materias-edit/materias-edit.module').then(m => m.MateriasEditModule)},
   { path: 'atualiza-materia/:id', loadChildren: () => import('./pages/atualiza-materia/atualiza-materia.module').then(m => m.AtualizaMateriaModule)},
   { path: 'salva-materia', loadChildren: () => import('./pages/salva-materia/salva-materia.module').then(m => m.SalvaMateriaModule)},
-  { path: 'topico-edit/:id', loadChildren: () => import('./pages/topico-edit/topico-edit.module').then(m => m.TopicoEditModule)},
+  { path: 'topico-edit/:materiaId', loadChildren: () => import('./pages/topico-edit/topico-edit.module').then(m => m.TopicoEditModule)},
   { path: 'topico-edit/:materia-id/atualiza-topico/:topico-id', loadChildren: () => import('./pages/atualiza-topico/atualiza-topico.module').then(m => m.AtualizaTopicoModule)},
-  { path: 'topico-edit/salva-topico/:materia-id', loadChildren: () => import('./pages/salva-topico/salva-topico.module').then(m => m.SalvaTopicoModule)}
+  { path: 'topico-edit/salva-topico/:materia-id', loadChildren: () => import('./pages/salva-topico/salva-topico.module').then(m => m.SalvaTopicoModule)},
+  { path: 'conteudo-edit/:topico-id', loadChildren: () => import('./pages/conteudo-edit/conteudo-edit.module').then(m => m.ConteudoEditModule)}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

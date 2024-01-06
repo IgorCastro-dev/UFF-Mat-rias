@@ -13,7 +13,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let topico of dataSource.connect() | async">
-        <td>{{ topico.secaoMateriasNome }}</td>
+        <td (click)="navegarParaConteudos(topico.secaoMateriasId)">{{ topico.secaoMateriasNome }}</td>
         <td>
           <button mat-icon-button color="black" aria-label="Editar topico" (click)="goToAtualizaTopico(topico.secaoMateriasId)">
             <mat-icon>edit</mat-icon>
