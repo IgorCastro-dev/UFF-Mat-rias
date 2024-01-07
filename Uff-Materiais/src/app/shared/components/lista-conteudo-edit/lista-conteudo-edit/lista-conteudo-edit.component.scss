@@ -1,0 +1,81 @@
+
+.container{
+  overflow-x: auto;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.botoes{
+  padding-right: 20px;
+}
+
+.adicionar-conteudo-btn {
+  display: flex;
+  align-items: center;
+  background-color: #4CAF50; /* Cor verde de exemplo, ajuste conforme necessário */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 300px;
+  height: 60px;
+  justify-content: space-around;
+}
+.adicionar-conteudo-btn p {
+  margin: 0;
+  font-weight: bold;
+  font-size: large;
+}
+
+.adicionar-conteudo-btn mat-icon {
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+}
+
+.adicionar-conteudo-btn:hover {
+  background-color: #45a049;
+}
+
+.container-botao{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+td, th{
+  color: black;
+
+}
+tr {
+  background-color: #d9d9d9;
+}
+th{
+  border-bottom: 1px solid #2D2929;
+}
+
+td{
+  border-bottom: 15px solid #2D2929;
+}
+
+tr:hover {
+  cursor: pointer;
+  background-color: #939393;
+}
+
+.ng-star-inserted{
+  border: none;
+}
+

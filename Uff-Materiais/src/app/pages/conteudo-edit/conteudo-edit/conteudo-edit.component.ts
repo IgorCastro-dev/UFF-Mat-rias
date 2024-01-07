@@ -10,13 +10,13 @@ import { Observable } from 'rxjs';
   styleUrl: './conteudo-edit.component.scss'
 })
 export class ConteudoEditComponent {
-  topicoId!:number;
+  fileNome!:string;
   conteudos!: Observable<Conteudo[]>;
   constructor(private conteudoService:ConteudoService,private route: ActivatedRoute){
     this.route.params.subscribe(params => {
-      const topicoId = params['topico-id'];
-      this.topicoId = topicoId;
-      this.conteudos = this.conteudoService.getConteudos(topicoId);
+      const fileNome = params['fileNome'];
+      this.fileNome = fileNome;
+      this.conteudos = this.conteudoService.getConteudos(fileNome);
     })
   }
 }

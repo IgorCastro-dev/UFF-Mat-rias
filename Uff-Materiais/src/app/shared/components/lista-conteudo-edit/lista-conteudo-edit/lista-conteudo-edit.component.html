@@ -1,0 +1,41 @@
+<div class="container">
+  <mat-form-field>
+    <mat-label>Conteúdo</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Exercícios de Dev Web" #input>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <table>
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let conteudo of dataSource.connect() | async">
+        <td>{{conteudo.descricao}}</td>
+        <td>
+          <button mat-icon-button color="black" aria-label="Faz o download" (click)="fazerDowload(conteudo.nome)">
+            <mat-icon>download</mat-icon>
+          </button>
+          <button mat-icon-button color="black" aria-label="Editar topico">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="black" aria-label="Deleta topico">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <mat-paginator
+              [pageSize]="10"
+              aria-label="Select page">
+</mat-paginator>
+<div class="container-botao">
+  <button class="adicionar-conteudo-btn">
+    <p>Adicionar Conteúdo</p>
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</div>
+</div>
