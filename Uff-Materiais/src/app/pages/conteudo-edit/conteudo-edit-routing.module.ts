@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConteudoEditComponent } from './conteudo-edit/conteudo-edit.component';
 
 const routes: Routes = [
-  {path:"",component:ConteudoEditComponent}
+  { path: '', component: ConteudoEditComponent }
 ];
 
 @NgModule({

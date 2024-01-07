@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Conteudo } from 'src/app/model/conteudo';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class ConteudoService {
 
   constructor(private http:HttpClient ) {}
 
-  public getConteudos(topicoId:number){
+  public getConteudos(topicoId:number):Observable<Conteudo[]>{
     return this.http.get<Conteudo[]>(`${this.apiUrl}/${topicoId}`);
   }
 }

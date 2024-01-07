@@ -9,6 +9,7 @@ import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { ListaConteudoEditModule } from 'src/app/shared/components/lista-conteudo-edit/lista-conteudo-edit.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     LogoModule,
     FooterModule,
     ButtonModule,
-    MaterialModule
+    MaterialModule,
+    ListaConteudoEditModule
   ]
 })
 export class ConteudoEditModule { }

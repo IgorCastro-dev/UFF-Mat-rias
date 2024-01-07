@@ -14,7 +14,7 @@ export class ConteudoEditComponent {
   conteudos!: Observable<Conteudo[]>;
   constructor(private conteudoService:ConteudoService,private route: ActivatedRoute){
     this.route.params.subscribe(params => {
-      const topicoId = params['topicoId'];
+      const topicoId = params['topico-id'];
       this.topicoId = topicoId;
       this.conteudos = this.conteudoService.getConteudos(topicoId);
     })
