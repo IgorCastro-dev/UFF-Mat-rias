@@ -1,0 +1,23 @@
+<div class="salva-conteudo">
+  <app-nav-bar></app-nav-bar>
+  <app-logo></app-logo>
+  <p style="color: white;">Salve o Conteúdo</p>
+  <form class="example-form" [formGroup]="formGroup" (ngSubmit)="salvarConteudo()">
+
+    <mat-form-field>
+      <mat-label>Descrição do conteúdo</mat-label>
+      <input matInput name="inputName" required formControlName="conteudoDescricao">
+    </mat-form-field>
+
+    <div class="custom-file-input">
+      <input type="file" id="fileInput" class="input-file" (change)="onFileSelected($event)" formControlName="conteudoArquivo"/>
+      <label for="fileInput">Escolha um arquivo</label>
+      <span class="fileName"><p>{{ selectedFileName }}</p></span>
+    </div>
+
+
+
+    <app-button [nome]="nomeBotao" type="submit"></app-button>
+  </form>
+</div>
+<app-footer></app-footer>

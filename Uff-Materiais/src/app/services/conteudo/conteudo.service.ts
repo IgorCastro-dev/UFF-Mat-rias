@@ -19,9 +19,14 @@ export class ConteudoService {
   dowloadConteudo(fileNome: string): Observable<Blob> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Accept': 'application/octet-stream' // Indica que estamos esperando uma resposta de octet-stream
+      'Accept': 'application/octet-stream'
     });
 
     return this.http.get(`${this.apiUrl}/dowload/${fileNome}`, { headers: headers, responseType: 'blob' });
+  }
+
+  uploadConteudo(conteudo: FormData,topicoId:number): Observable<any> {
+
+    return this.http.post(`${this.apiUrl}/${topicoId}`, conteudo);
   }
 }

@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { Conteudo } from 'src/app/model/conteudo';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,13 +15,13 @@ import { Conteudo } from 'src/app/model/conteudo';
 })
 export class ListaConteudoEditComponent {
   @Input() conteudos: Observable<Conteudo[]> = new Observable<Conteudo[]>();
-  @Input() fileNome!: string;
+  @Input() topicoId!: number;
   dataSource: MatTableDataSource<Conteudo> = new MatTableDataSource<Conteudo>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private conteudoService:ConteudoService,private cdRef: ChangeDetectorRef) {}
+  constructor(private conteudoService:ConteudoService,private cdRef: ChangeDetectorRef,private router: Router) {}
 
   ngAfterViewInit() {
     this.conteudos.subscribe(data => {
@@ -66,5 +67,9 @@ export class ListaConteudoEditComponent {
       // Revogue a URL do objeto
       window.URL.revokeObjectURL(url);
     });
+  }
+
+  goToSalvarConteudo(){
+    this.router.navigate([`conteudo-edit/salva-conteudo/${this.topicoId}`]);
   }
 }

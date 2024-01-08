@@ -11,13 +11,13 @@ import { TopicoService } from 'src/app/services/topico/topico.service';
 export class SalvaTopicoComponent {
   formGroup!: FormGroup;
   nomeBotao = "salvar";
-  materiaId: number = 3;
+  topicoId: number = 3;
 
   constructor(private fb: FormBuilder,private topicoService:TopicoService,private route: ActivatedRoute,private router: Router){
 
     this.route.params.subscribe(params => {
-      const materiaId = params['materia-id'];
-      this.materiaId = materiaId;
+      const materiaId = params['topico-id'];
+      this.topicoId = materiaId;
     });
 
     this.formGroup = this.fb.group({
@@ -28,10 +28,9 @@ export class SalvaTopicoComponent {
   salvarTopico(){
     if (this.formGroup.valid) {
       const topicoNovo= this.formGroup.value;
-      console.log(topicoNovo)
-      this.topicoService.salvaTopicoPorMateria(this.materiaId,topicoNovo).subscribe({
+      this.topicoService.salvaTopicoPorMateria(this.topicoId,topicoNovo).subscribe({
         next: () => {
-          this.router.navigate([`topico-edit/${this.materiaId}`]);
+          this.router.navigate([`topico-edit/${this.topicoId}`]);
         },
         error: (error) => {
               console.error('Erro ao atualizar usuário:', error);
