@@ -9,6 +9,7 @@ import { ButtonModule } from 'src/app/shared/components/button/button.module';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FooterModule } from 'src/app/shared/components/footer/footer.module';
     CommonModule,
     AtualizaUsuarioRoutingModule,
     MaterialModule,
+    MatSelectModule,
     LogoModule,
     ButtonModule,
     NgxMaskDirective,
