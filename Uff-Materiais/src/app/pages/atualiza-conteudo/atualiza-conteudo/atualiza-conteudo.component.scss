@@ -1,0 +1,70 @@
+.example-form {
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  max-width: 500px;
+}
+
+.salva-conteudo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.custom-file-input {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.input-file {
+  display: none; /* Esconda o input padrão */
+}
+
+.fileName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  color: #333;
+  font-size: 14px;
+  margin-top: 30px;
+  height:60px;
+  margin-bottom: 20px;
+  background-color: #d3d3d3;
+  align-items: center;
+}
+
+
+label {
+  background-color: #d3d3d3; /* Cor de fundo */
+  color: black; /* Cor do texto */
+  padding: 10px 15px; /* Espaçamento interno */
+  border-radius: 5px; /* Borda arredondada */
+  cursor: pointer; /* Altera o cursor ao passar por cima */
+}
+
+/* Estilo quando o mouse passa por cima */
+label:hover {
+  background-color: #c0c0c0;
+}
+
+@media (min-width: 600px){
+  .logo_logado{
+    display: none;
+  }
+  app-footer{
+    display: none;
+  }
+}
+@media (max-width: 600px){
+  app-nav-bar{
+    display: none;
+  }
+}
+

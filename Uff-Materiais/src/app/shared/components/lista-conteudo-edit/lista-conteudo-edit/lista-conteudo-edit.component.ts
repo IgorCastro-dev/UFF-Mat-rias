@@ -69,6 +69,10 @@ export class ListaConteudoEditComponent {
     });
   }
 
+  goToAtualizaConteudo(fileNome: string){
+    this.router.navigate([`conteudo-edit/atualiza-conteudo/${fileNome}`]);
+  }
+
   goToSalvarConteudo(){
     this.router.navigate([`conteudo-edit/salva-conteudo/${this.topicoId}`]);
   }

@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'topico-edit/:materia-id/atualiza-topico/:topico-id', loadChildren: () => import('./pages/atualiza-topico/atualiza-topico.module').then(m => m.AtualizaTopicoModule)},
   { path: 'topico-edit/salva-topico/:materia-id', loadChildren: () => import('./pages/salva-topico/salva-topico.module').then(m => m.SalvaTopicoModule)},
   { path: 'conteudo-edit/:topico-id', loadChildren: () => import('./pages/conteudo-edit/conteudo-edit.module').then(m => m.ConteudoEditModule)},
-  { path: 'conteudo-edit/salva-conteudo/:topico-id', loadChildren: () => import('./pages/salva-conteudo/salva-conteudo.module').then(m => m.SalvaConteudoModule)}
+  { path: 'conteudo-edit/salva-conteudo/:topico-id', loadChildren: () => import('./pages/salva-conteudo/salva-conteudo.module').then(m => m.SalvaConteudoModule)},
+  { path: 'conteudo-edit/atualiza-conteudo/:filename', loadChildren: () => import('./pages/atualiza-conteudo/atualiza-conteudo.module').then(m => m.AtualizaConteudoModule)}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

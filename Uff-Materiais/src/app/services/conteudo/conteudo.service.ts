@@ -12,9 +12,14 @@ export class ConteudoService {
 
   constructor(private http:HttpClient ) {}
 
-  public getConteudos(topicoId:number):Observable<Conteudo[]>{
+  getConteudos(topicoId:number):Observable<Conteudo[]>{
     return this.http.get<Conteudo[]>(`${this.apiUrl}/${topicoId}`);
   }
+
+  getConteudo(fileNome: string):Observable<Conteudo>{
+    return this.http.get<Conteudo>(`${this.apiUrl}/buscar/${fileNome}`);
+  }
+
 
   dowloadConteudo(fileNome: string): Observable<Blob> {
     const headers = new HttpHeaders({
