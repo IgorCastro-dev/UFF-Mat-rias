@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Conteudo } from 'src/app/model/conteudo';
 import { ConteudoService } from 'src/app/services/conteudo/conteudo.service';
 
 @Component({
@@ -10,15 +11,18 @@ import { ConteudoService } from 'src/app/services/conteudo/conteudo.service';
 })
 export class AtualizaConteudoComponent {
   formGroup!: FormGroup;
-  nomeBotao = "salvar";
+  nomeBotao = "Atualizar";
+  selectedFileName: string = "Nome Arquivo";
   topicoId: number = 3;
-  selectedFileName: string = "Nome do Arquivo";
+  conteudoId: number = 3;
 
   constructor(private fb: FormBuilder,private conteudoService:ConteudoService,
     private route: ActivatedRoute,private router: Router){
 
     this.route.params.subscribe(params => {
+      const conteudoId = params['conteudo-id'];
       const topicoId = params['topico-id'];
+      this.conteudoId = conteudoId;
       this.topicoId = topicoId;
     });
 
@@ -28,11 +32,18 @@ export class AtualizaConteudoComponent {
     });
   }
 
+  ngOnInit(){
+    this.conteudoService.getConteudo(this.conteudoId).subscribe((conteudo: Conteudo) => {
+      this.formGroup.patchValue({
+        conteudoDescricao: conteudo.descricao
+      });
+      this.selectedFileName = conteudo.nome;
+    });
+  }
+
   salvarConteudo() {
-    if (this.formGroup.valid) {
       const conteudo = new FormData();
       const arquivoInput = (document.getElementById('fileInput') as HTMLInputElement)?.files?.[0];
-
       if (arquivoInput) {
         conteudo.append('arquivo', arquivoInput);
       }
@@ -43,7 +54,7 @@ export class AtualizaConteudoComponent {
         conteudo.append('descricao', descricaoInput);
       }
 
-      this.conteudoService.uploadConteudo(conteudo,this.topicoId).subscribe({
+      this.conteudoService.updateConteudo(this.conteudoId,conteudo,).subscribe({
         next: () => {
           this.router.navigate([`conteudo-edit/${this.topicoId}`]);
         },
@@ -52,7 +63,6 @@ export class AtualizaConteudoComponent {
           // Trate o erro conforme necessário
         }
       });
-    }
   }
 
   onFileSelected(event: any) {

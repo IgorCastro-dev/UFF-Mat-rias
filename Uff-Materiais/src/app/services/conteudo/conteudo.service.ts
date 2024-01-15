@@ -16,9 +16,10 @@ export class ConteudoService {
     return this.http.get<Conteudo[]>(`${this.apiUrl}/${topicoId}`);
   }
 
-  getConteudo(fileNome: string):Observable<Conteudo>{
-    return this.http.get<Conteudo>(`${this.apiUrl}/buscar/${fileNome}`);
+  getConteudo(conteudoId: number):Observable<Conteudo>{
+    return this.http.get<Conteudo>(`${this.apiUrl}/buscar/${conteudoId}`);
   }
+
 
 
   dowloadConteudo(fileNome: string): Observable<Blob> {
@@ -30,8 +31,11 @@ export class ConteudoService {
     return this.http.get(`${this.apiUrl}/dowload/${fileNome}`, { headers: headers, responseType: 'blob' });
   }
 
-  uploadConteudo(conteudo: FormData,topicoId:number): Observable<any> {
+  updateConteudo(conteudoId: number,conteudo: FormData){
+    return this.http.put(`${this.apiUrl}/${conteudoId}`,conteudo);
+  }
 
+  uploadConteudo(conteudo: FormData,topicoId:number): Observable<any> {
     return this.http.post(`${this.apiUrl}/${topicoId}`, conteudo);
   }
 }

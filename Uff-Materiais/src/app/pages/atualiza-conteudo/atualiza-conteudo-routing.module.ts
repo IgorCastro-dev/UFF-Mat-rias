@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AtualizaConteudoComponent } from './atualiza-conteudo/atualiza-conteudo.component';
 
 const routes: Routes = [
-  {path:"",component:AtualizaConteudoComponent}
+  {path:"", component:AtualizaConteudoComponent}
 ];
 
 @NgModule({
