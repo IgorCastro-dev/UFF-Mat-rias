@@ -69,6 +69,12 @@ export class ListaConteudoEditComponent {
     });
   }
 
+  deletaConteudo(fileNome: string){
+    this.conteudoService.deleteConteudo(fileNome).subscribe(() => {
+      this.dataSource.data = this.dataSource.data.filter(file => file.nome !== fileNome);
+    })
+  }
+
   goToAtualizaConteudo(conteudoId: number){
     this.router.navigate([`conteudo-edit/${this.topicoId}/atualiza-conteudo/${conteudoId}`]);
   }

@@ -38,4 +38,8 @@ export class ConteudoService {
   uploadConteudo(conteudo: FormData,topicoId:number): Observable<any> {
     return this.http.post(`${this.apiUrl}/${topicoId}`, conteudo);
   }
+
+  deleteConteudo(fileNome: string){
+    return this.http.delete(`${this.apiUrl}/${fileNome}`);
+  }
 }
