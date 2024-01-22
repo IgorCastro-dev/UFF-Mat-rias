@@ -24,8 +24,6 @@ export class UsuarioEditComponent {
   usuarios:Observable<Usuario[]>
   constructor(private usuarioService: UsuarioService){
     this.usuarios = this.usuarioService.getUsers();
-    console.log("usuarios:")
-    console.log("usuarios:"+this.usuarios.subscribe())
   }
 
 }

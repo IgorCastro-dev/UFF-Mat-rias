@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { Topico } from 'src/app/model/topico';
 
@@ -8,33 +9,38 @@ import { Topico } from 'src/app/model/topico';
 })
 export class TopicoService {
 
-  private apiUrl = "http://localhost:8080/v1/api/uff-materias/topicos";
+  constructor(private http:HttpClient,private cookieService:CookieService ) {}
 
-  constructor(private http:HttpClient) {}
+  private apiUrl = "http://localhost:8080/v1/api/uff-materias/topicos";
+  private token = this.cookieService.get('token');
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${this.token}`
+  });
 
   getTopicos(): Observable<Topico[]>{
-    return this.http.get<Topico[]>(`${this.apiUrl}`);
+    return this.http.get<Topico[]>(`${this.apiUrl}`,{ headers: this.headers });
   }
 
   getTopicosByMateria(materiaId:number): Observable<Topico[]>{
-    return this.http.get<Topico[]>(`${this.apiUrl}/materia/${materiaId}`);
+    return this.http.get<Topico[]>(`${this.apiUrl}/materia/${materiaId}`,{ headers: this.headers });
   }
 
   getTopicoById(topicoId:number): Observable<Topico>{
-    return this.http.get<Topico>(`${this.apiUrl}/${topicoId}`);
+    return this.http.get<Topico>(`${this.apiUrl}/${topicoId}`,{ headers: this.headers });
   }
 
   updateTopico(topicoId:number, topicoAtualizado:any){
     const url = `${this.apiUrl}/${topicoId}`;
-    return this.http.put(url,topicoAtualizado);
+    return this.http.put(url,topicoAtualizado,{ headers: this.headers });
   }
 
   salvaTopicoPorMateria(materiId:number, topico:any){
     const url = `${this.apiUrl}/${materiId}`;
-    return this.http.post(url,topico);
+    return this.http.post(url,topico,{ headers: this.headers });
   }
 
   deletaTopicoPorId(topicoId:number){
-    return this.http.delete(`${this.apiUrl}/${topicoId}`);
+    return this.http.delete(`${this.apiUrl}/${topicoId}`,{ headers: this.headers });
   }
 }
