@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -29,13 +30,11 @@ export class AuthService {
     }
     try {
       const isTokenExpired = this.jwtHelperService.isTokenExpired(token);
-
-      if (isTokenExpired) {
+      const decodedToken: any = this.jwtHelperService.decodeToken(token);
+      if (isTokenExpired || decodedToken.iss !== "Token do app") {
         // Token expirado
         return false;
       }
-
-      // Outras verificações de validade, se necessário
 
       return true;
     } catch (error) {
@@ -50,10 +49,8 @@ export class AuthService {
       const decodeToken = this.jwtHelperService.decodeToken(token);
 
       if (decodeToken.roles == "ADMIN") {
-        console.log("é admin")
         return true;
       }
-      console.log("não admin")
       return false;
     } catch (error) {
       console.error('Erro ao decodificar o token:', error);

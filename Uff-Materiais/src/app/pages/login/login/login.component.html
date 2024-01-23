@@ -19,9 +19,11 @@
       </button>
     </mat-form-field>
     <div class="caminhos">
-      <p>Cadastrar</p>
-      <p>Esqueci a senha</p>
+      <span><a href="/cadastrar-usuario">Cadastrar</a></span>
+      <span>Esqueci a senha</span>
     </div>
-    <app-button [nome]="nomeBotao" (click)="logar()"></app-button>
+    <div class="botao">
+      <button (click)="logar()">Entrar</button>
+    </div>
   </form>
 </div>

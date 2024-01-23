@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'topico-edit/salva-topico/:materia-id', loadChildren: () => import('./pages/salva-topico/salva-topico.module').then(m => m.SalvaTopicoModule),canActivate:[authGuard]},
   { path: 'conteudo-edit/:topico-id', loadChildren: () => import('./pages/conteudo-edit/conteudo-edit.module').then(m => m.ConteudoEditModule),canActivate:[authGuard]},
   { path: 'conteudo-edit/salva-conteudo/:topico-id', loadChildren: () => import('./pages/salva-conteudo/salva-conteudo.module').then(m => m.SalvaConteudoModule),canActivate:[authGuard]},
-  { path: 'conteudo-edit/:topico-id/atualiza-conteudo/:conteudo-id', loadChildren: () => import('./pages/atualiza-conteudo/atualiza-conteudo.module').then(m => m.AtualizaConteudoModule),canActivate:[authGuard]}
+  { path: 'conteudo-edit/:topico-id/atualiza-conteudo/:conteudo-id', loadChildren: () => import('./pages/atualiza-conteudo/atualiza-conteudo.module').then(m => m.AtualizaConteudoModule),canActivate:[authGuard]},
+  { path: 'cadastrar-usuario', loadChildren: () => import('./pages/cadastra-usuario/cadastra-usuario.module').then(m => m.CadastraUsuarioModule)},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

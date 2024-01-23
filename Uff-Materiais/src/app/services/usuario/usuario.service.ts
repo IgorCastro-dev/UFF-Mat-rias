@@ -33,6 +33,10 @@ export class UsuarioService {
     );
   }
 
+  postUser(usuarioNovo:any){
+    return this.http.post(`${this.apiUrl}`,usuarioNovo);
+  }
+
   deleteUsuario(usuarioId: number){
     const url = `${this.apiUrl}/${usuarioId}`;
     return this.http.delete<Usuario>(url,{ headers: this.headers });
