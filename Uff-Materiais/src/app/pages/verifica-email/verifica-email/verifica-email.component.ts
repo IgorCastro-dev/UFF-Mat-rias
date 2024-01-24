@@ -31,7 +31,7 @@ export class VerificaEmailComponent {
     this.usuarioService.verifyEmail(email).subscribe({
       next: () => {
         console.log('Email enviado com sucesso!');
-        // Adicione qualquer lógica adicional conforme necessário
+        this.router.navigate(['confirma-recoverycode'], { queryParams: { email: email.email } });
       },
       error: (error) => {
         console.error('Erro ao enviar email:', error);

@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'cadastrar-usuario', loadChildren: () => import('./pages/cadastra-usuario/cadastra-usuario.module').then(m => m.CadastraUsuarioModule)},
   { path: 'confirma-code', loadChildren: () => import('./pages/confirma-code/confirma-code.module').then(m => m.ConfirmaCodeModule)},
   { path: 'verifica-email', loadChildren: () => import('./pages/verifica-email/verifica-email.module').then(m => m.VerificaEmailModule)},
+  { path: 'confirma-recoverycode', loadChildren: () => import('./pages/confirma-recoverycode/confirma-recoverycode.module').then(m => m.ConfirmaRecoverycodeModule)},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

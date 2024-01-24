@@ -47,6 +47,11 @@ export class UsuarioService {
     return this.http.post(url,code);
   }
 
+  confirmaRecoveryCode(code:any,email:string){
+    const url = `${this.apiUrl}/verify-recoverycode?email=${email}`;
+    return this.http.post(url,code);
+  }
+
   verifyEmail(email:any){
     const url = `${this.apiUrl}/verify-email`;
     return this.http.post(url,email)
