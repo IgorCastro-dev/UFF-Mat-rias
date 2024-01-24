@@ -27,7 +27,7 @@ export class CadastraUsuarioComponent {
       this.usuarioService.postUser(usuarioNovo).subscribe({
         next: () => {
           console.log('Usuário cadastrado com sucesso!');
-          this.router.navigate(['usuario-edit']);
+          this.router.navigate(['confirma-code'], { queryParams: { email: usuarioNovo.email } });
         },
         error: (error) => {
           console.error('Erro ao cadastrar usuário:', error);

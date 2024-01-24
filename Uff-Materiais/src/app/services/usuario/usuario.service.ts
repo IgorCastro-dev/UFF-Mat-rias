@@ -42,6 +42,11 @@ export class UsuarioService {
     return this.http.delete<Usuario>(url,{ headers: this.headers });
   }
 
+  enviarCodigo(code:any,email:string){
+    const url = `${this.apiUrl}/verify-code?email=${email}`;
+    return this.http.post(url,code);
+  }
+
   updateUser(usuarioId: number, usuarioAtualizado:any){
     const url = `${this.apiUrl}/${usuarioId}`;
     return this.http.put(url,usuarioAtualizado,{ headers: this.headers });

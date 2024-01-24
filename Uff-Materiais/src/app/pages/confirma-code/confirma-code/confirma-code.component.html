@@ -1,0 +1,15 @@
+<div class="confirma-codigo">
+  <app-nav-bar></app-nav-bar>
+  <app-logo></app-logo>
+  <p style="color: white;">Coloque o código enviado para seu email</p>
+  <form id="codeForm" (ngSubmit)="enviarCodigo()">
+    <div class="input">
+      <input type="text" maxlength="1" pattern="\d" required [(ngModel)]="codigoDigitado[0]" name="codigo0">
+      <input type="text" maxlength="1" pattern="\d" required [(ngModel)]="codigoDigitado[1]" name="codigo1">
+      <input type="text" maxlength="1" pattern="\d" required [(ngModel)]="codigoDigitado[2]" name="codigo2">
+      <input type="text" maxlength="1" pattern="\d" required [(ngModel)]="codigoDigitado[3]" name="codigo3">
+    </div>
+    <app-button [nome]="nomeBotao" type="submit"></app-button>
+  </form>
+</div>
+<app-footer></app-footer>
