@@ -42,9 +42,14 @@ export class UsuarioService {
     return this.http.delete<Usuario>(url,{ headers: this.headers });
   }
 
-  enviarCodigo(code:any,email:string){
-    const url = `${this.apiUrl}/verify-code?email=${email}`;
+  enviarRegisterCode(code:any,email:string){
+    const url = `${this.apiUrl}/verify-registercode?email=${email}`;
     return this.http.post(url,code);
+  }
+
+  verifyEmail(email:any){
+    const url = `${this.apiUrl}/verify-email`;
+    return this.http.post(url,email)
   }
 
   updateUser(usuarioId: number, usuarioAtualizado:any){

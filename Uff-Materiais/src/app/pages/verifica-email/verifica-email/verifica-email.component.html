@@ -1,0 +1,18 @@
+<div class="verifica-email">
+  <app-nav-bar></app-nav-bar>
+  <app-logo></app-logo>
+  <p style="color: white;">Confirme seu email</p>
+  <form class="example-form" (ngSubmit)="enviaCodigo()" [formGroup]="formGroup">
+
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="pat@example.com" required name="inputEmail" formControlName="email">
+      @if (emailFormControl .invalid) {
+        <mat-error>{{getErrorMessage()}}</mat-error>
+      }
+    </mat-form-field>
+
+    <app-button [nome]="nomeBotao" type="submit"></app-button>
+  </form>
+</div>
+<app-footer></app-footer>

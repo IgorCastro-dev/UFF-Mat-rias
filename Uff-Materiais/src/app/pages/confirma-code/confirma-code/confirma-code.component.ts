@@ -26,7 +26,7 @@ export class ConfirmaCodeComponent {
     const codigoCompleto = this.codigoDigitado.join('');
       const codigo: Codigo = {code:codigoCompleto};
       // Agora você pode enviar `codigoCompleto` para a sua API usando seu serviço
-      this.usuarioService.enviarCodigo(codigo,this.emailRecebido).subscribe({
+      this.usuarioService.enviarRegisterCode(codigo,this.emailRecebido).subscribe({
         next: () => {
           console.log('Código enviado com sucesso!');
           // Adicione qualquer lógica adicional conforme necessário

@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'conteudo-edit/:topico-id/atualiza-conteudo/:conteudo-id', loadChildren: () => import('./pages/atualiza-conteudo/atualiza-conteudo.module').then(m => m.AtualizaConteudoModule),canActivate:[authGuard]},
   { path: 'cadastrar-usuario', loadChildren: () => import('./pages/cadastra-usuario/cadastra-usuario.module').then(m => m.CadastraUsuarioModule)},
   { path: 'confirma-code', loadChildren: () => import('./pages/confirma-code/confirma-code.module').then(m => m.ConfirmaCodeModule)},
+  { path: 'verifica-email', loadChildren: () => import('./pages/verifica-email/verifica-email.module').then(m => m.VerificaEmailModule)},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
