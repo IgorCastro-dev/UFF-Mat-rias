@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { Usuario } from 'src/app/model/usuario';
 import { CookieService } from 'ngx-cookie-service';
+import { Updatepassword } from 'src/app/model/updatepassword';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,12 @@ export class UsuarioService {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.token}`
   });
+
+  updatePassword(updatePassword:Updatepassword){
+    const url = `${this.apiUrl}/update-password`;
+    console.log("conteudo: "+updatePassword)
+    return this.http.put(url,updatePassword);
+  }
 
   getUsers(): Observable<Usuario[]>{
     return this.http.get<Usuario[]>(`${this.apiUrl}`,{ headers: this.headers }).pipe(

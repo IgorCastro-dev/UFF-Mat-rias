@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './Guard/auth.guard';
 import { adminGuardGuard } from './Guard/AdminGuard/admin-guard.guard';
+import { passwordGuardGuard } from './Guard/PasswordGuard/password-guard.guard';
 const routes: Routes = [
   {path:"",pathMatch:"full",redirectTo:'login'},
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'confirma-code', loadChildren: () => import('./pages/confirma-code/confirma-code.module').then(m => m.ConfirmaCodeModule)},
   { path: 'verifica-email', loadChildren: () => import('./pages/verifica-email/verifica-email.module').then(m => m.VerificaEmailModule)},
   { path: 'confirma-recoverycode', loadChildren: () => import('./pages/confirma-recoverycode/confirma-recoverycode.module').then(m => m.ConfirmaRecoverycodeModule)},
+  { path: 'update-password', loadChildren: () => import('./pages/update-password/update-password.module').then(m => m.UpdatePasswordModule),canActivate:[passwordGuardGuard]},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
