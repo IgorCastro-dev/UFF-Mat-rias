@@ -8,7 +8,7 @@
 
 ## Stack utilizada
 
-**Front-end:** Angular, Sass, Material, CSS, HTML, Typescript
+**Front-end:** Angular, Sass, Material, SCSS, HTML, Typescript
 
 
 ## Funcionalidades
@@ -23,7 +23,38 @@
 - Telas de tratamento de erro
 - Spinner de carregamento
 
+## Rodando localmente
 
+Abra o seu terminal
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/IgorCastro-dev/UFF-Mat-rias.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd UFF-Mat-rias
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  ng serve
+```
+No browser, Visualize o Aplicativo:
+
+```bash
+  http://localhost:4200/
+```
 # Screenshots
 ## Tela de login
 
