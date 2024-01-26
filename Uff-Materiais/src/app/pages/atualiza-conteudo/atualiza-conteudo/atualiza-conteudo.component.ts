@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Conteudo } from 'src/app/model/conteudo';
 import { ConteudoService } from 'src/app/services/conteudo/conteudo.service';
 
@@ -15,6 +16,7 @@ export class AtualizaConteudoComponent {
   selectedFileName: string = "Nome Arquivo";
   topicoId: number = 3;
   conteudoId: number = 3;
+  showSpinner$ = new BehaviorSubject<boolean>(false);
 
   constructor(private fb: FormBuilder,private conteudoService:ConteudoService,
     private route: ActivatedRoute,private router: Router){
@@ -53,12 +55,14 @@ export class AtualizaConteudoComponent {
       if (typeof descricaoInput === 'string') {
         conteudo.append('descricao', descricaoInput);
       }
-
+      this.showSpinner$.next(true);
       this.conteudoService.updateConteudo(this.conteudoId,conteudo,).subscribe({
         next: () => {
+          this.showSpinner$.next(false);
           this.router.navigate([`conteudo-edit/${this.topicoId}`]);
         },
         error: (error) => {
+          this.showSpinner$.next(false);
           console.error('Erro ao fazer upload do conteúdo:', error);
           // Trate o erro conforme necessário
         }

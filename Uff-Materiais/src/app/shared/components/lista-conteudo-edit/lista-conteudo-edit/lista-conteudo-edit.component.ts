@@ -3,7 +3,7 @@ import { ChangeDetectorRef, Component,Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Conteudo } from 'src/app/model/conteudo';
 import { Router } from '@angular/router';
 
@@ -14,22 +14,22 @@ import { Router } from '@angular/router';
   styleUrl: './lista-conteudo-edit.component.scss'
 })
 export class ListaConteudoEditComponent {
-  @Input() conteudos: Observable<Conteudo[]> = new Observable<Conteudo[]>();
+  @Input() conteudos!: Conteudo[];
   @Input() topicoId!: number;
   dataSource: MatTableDataSource<Conteudo> = new MatTableDataSource<Conteudo>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  showSpinner$ = new BehaviorSubject<boolean>(false);
+
   constructor(private conteudoService:ConteudoService,private cdRef: ChangeDetectorRef,private router: Router) {}
 
   ngAfterViewInit() {
-    this.conteudos.subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(this.conteudos);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.cdRef.detectChanges();
-    });
   }
 
   applyFilter(event: Event) {
@@ -51,6 +51,7 @@ export class ListaConteudoEditComponent {
   }
 
   fazerDowload(fileNome: string) {
+    this.showSpinner$.next(true);
     this.conteudoService.dowloadConteudo(fileNome).subscribe((blob: Blob) => {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
@@ -66,6 +67,7 @@ export class ListaConteudoEditComponent {
 
       // Revogue a URL do objeto
       window.URL.revokeObjectURL(url);
+      this.showSpinner$.next(false);
     });
   }
 

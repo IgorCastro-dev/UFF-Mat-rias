@@ -1,7 +1,7 @@
 import { TopicoService } from './../../../services/topico/topico.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, delay } from 'rxjs';
 import { Topico } from 'src/app/model/topico';
 
 @Component({
@@ -13,12 +13,12 @@ import { Topico } from 'src/app/model/topico';
 export class TopicoEditComponent {
   materiaId!:number;
 
-  topicos!: Observable<Topico[]>;
+  topicos$!: Observable<Topico[]>;
   constructor(private topicoService:TopicoService,private route: ActivatedRoute){
     this.route.params.subscribe(params => {
       const materiaId = params['materiaId'];
       this.materiaId = materiaId;
-      this.topicos = this.topicoService.getTopicosByMateria(materiaId);
+      this.topicos$ = this.topicoService.getTopicosByMateria(materiaId);
     });
   }
 }

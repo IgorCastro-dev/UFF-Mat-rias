@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, delay } from 'rxjs';
 import { Materia } from 'src/app/model/materia';
 import { MateriaService } from 'src/app/services/materia/materia.service';
 
@@ -20,9 +20,9 @@ export class MateriasEditComponent {
 
   label = "Usuário";
   exemplo = "Gabriel";
-  materias:Observable<Materia[]>
+  materias$:Observable<Materia[]>
   constructor(private materiaService: MateriaService){
-    this.materias = this.materiaService.getMaterias();
+    this.materias$ = this.materiaService.getMaterias();
   }
 
 }
