@@ -8,6 +8,7 @@ import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
 import { LogoModule } from 'src/app/shared/components/logo/logo.module';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LogoModule } from 'src/app/shared/components/logo/logo.module';
     NavBarModule,
     FooterModule,
     ButtonModule,
-    LogoModule
+    LogoModule,
+    ErrorDialogModule
   ]
 })
 export class SalvaMateriaModule { }

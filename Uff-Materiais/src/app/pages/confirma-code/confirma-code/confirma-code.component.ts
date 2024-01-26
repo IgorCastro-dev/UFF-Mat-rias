@@ -2,6 +2,9 @@ import { Codigo } from './../../../model/codigo';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
+import { SuccessDialogComponent } from 'src/app/shared/components/success-dialog/success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-confirma-code',
@@ -13,7 +16,7 @@ export class ConfirmaCodeComponent {
   emailRecebido!: string;
   codigoDigitado: string[] = ['', '', '', ''];
 
-  constructor(private route: ActivatedRoute,private usuarioService:UsuarioService) {}
+  constructor(private route: ActivatedRoute,private usuarioService:UsuarioService,public dialog: MatDialog) {}
 
   ngOnInit() {
     // Capturar o email da URL
@@ -29,12 +32,23 @@ export class ConfirmaCodeComponent {
       this.usuarioService.enviarRegisterCode(codigo,this.emailRecebido).subscribe({
         next: () => {
           console.log('Código enviado com sucesso!');
-          // Adicione qualquer lógica adicional conforme necessário
+          this.openSuccess('Usuário salvo com sucesso, pode voltar ao login')
         },
         error: (error) => {
-          console.error('Erro ao enviar código:', error);
-          // Trate o erro conforme necessário
+          this.openError('Erro ao enviar código: '+ error.error.detail)
         }
+    });
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
+  }
+
+  openSuccess(successMsg:string) {
+    this.dialog.open(SuccessDialogComponent, {
+      data: successMsg
     });
   }
 }

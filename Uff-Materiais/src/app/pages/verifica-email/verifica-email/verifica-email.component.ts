@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-verifica-email',
@@ -14,7 +16,10 @@ export class VerificaEmailComponent {
   emailFormControl  = new FormControl('', [Validators.required, Validators.email]);
   formGroup: FormGroup;
 
-  constructor(private usuarioService: UsuarioService,private route: ActivatedRoute,private router: Router,private fb: FormBuilder){
+  constructor(private usuarioService: UsuarioService,
+    private router: Router,
+    private fb: FormBuilder,
+    public dialog: MatDialog){
 
     this.formGroup = this.fb.group({
       email: ['exemplo@id.uff.com', [Validators.required, Validators.email]]
@@ -30,13 +35,17 @@ export class VerificaEmailComponent {
     const email = this.formGroup.value;
     this.usuarioService.verifyEmail(email).subscribe({
       next: () => {
-        console.log('Email enviado com sucesso!');
         this.router.navigate(['confirma-recoverycode'], { queryParams: { email: email.email } });
       },
       error: (error) => {
-        console.error('Erro ao enviar email:', error);
-        // Trate o erro conforme necessário
+        this.openError('Erro ao enviar email: '+error.error.detail);
       }
+    });
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
     });
   }
 }

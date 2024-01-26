@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Materia } from 'src/app/model/materia';
 import { MateriaService } from 'src/app/services/materia/materia.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-atualiza-materia',
@@ -14,7 +16,11 @@ export class AtualizaMateriaComponent {
   nomeBotao = "atualizar";
   materiaId: number = 3;
 
-  constructor(private fb: FormBuilder,private materiaService: MateriaService,private route: ActivatedRoute,private router: Router){
+  constructor(private fb: FormBuilder,
+    private materiaService: MateriaService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog){
 
     this.route.params.subscribe(params => {
       const materiaId = params['id'];
@@ -44,11 +50,14 @@ export class AtualizaMateriaComponent {
           this.router.navigate(['materias-edit']);
         },
         error: (error) => {
-              console.error('Erro ao atualizar usuário:', error);
-              // Trate o erro conforme necessário
+              this.openError("Erro ao atualizar matéria: "+error.error.detail)
             }
       });
     }
   }
-
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
+  }
 }

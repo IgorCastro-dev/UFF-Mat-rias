@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { provideNgxMask } from 'ngx-mask';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Usuario } from '../../../model/usuario';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-atualiza-usuario',
@@ -16,7 +18,8 @@ export class AtualizaUsuarioComponent {
   formGroup: FormGroup;
 
   usuarioId!: number;
-  constructor(private usuarioService: UsuarioService,private route: ActivatedRoute,private router: Router,private fb: FormBuilder){
+  constructor(private usuarioService: UsuarioService,private route: ActivatedRoute,private router: Router,private fb: FormBuilder,
+    public dialog: MatDialog){
     this.route.params.subscribe(params => {
       const usuarioId = params['id'];
       this.usuarioId = usuarioId;
@@ -48,12 +51,10 @@ export class AtualizaUsuarioComponent {
       delete usuarioAtualizado.tipoSelecionado;
       this.usuarioService.updateUser(this.usuarioId, usuarioAtualizado).subscribe({
         next: () => {
-          console.log('Usuário atualizado com sucesso!');
           this.router.navigate(['usuario-edit']);
         },
         error: (error) => {
-          console.error('Erro ao atualizar usuário:', error);
-          // Trate o erro conforme necessário
+          this.openError('Erro ao atualizar usuario: '+ error.error.detail)
         },
       });
     }
@@ -70,5 +71,11 @@ export class AtualizaUsuarioComponent {
       return 'You must enter a value';
     }
     return this.emailFormControl .hasError('email') ? 'Not a valid email' : '';
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
   }
 }

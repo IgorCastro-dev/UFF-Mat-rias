@@ -8,6 +8,7 @@ import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { TabelaUserEditModule } from 'src/app/shared/components/tabela-user-edit/tabela-user-edit.module';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { TabelaUserEditModule } from 'src/app/shared/components/tabela-user-edit
     LogoModule,
     NavBarModule,
     FooterModule,
-    TabelaUserEditModule
+    TabelaUserEditModule,
+    ErrorDialogModule
   ]
 })
 export class UsuarioEditModule { }

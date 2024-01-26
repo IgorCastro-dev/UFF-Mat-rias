@@ -23,7 +23,6 @@ export class UsuarioService {
 
   updatePassword(updatePassword:Updatepassword){
     const url = `${this.apiUrl}/update-password`;
-    console.log("conteudo: "+updatePassword)
     return this.http.put(url,updatePassword);
   }
 

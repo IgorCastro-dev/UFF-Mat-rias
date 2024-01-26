@@ -8,6 +8,8 @@ import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
+import { SuccessDialogModule } from 'src/app/shared/components/success-dialog/success-dialog.module';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ButtonModule } from 'src/app/shared/components/button/button.module';
     LogoModule,
     MaterialModule,
     FooterModule,
-    ButtonModule
+    ButtonModule,
+    ErrorDialogModule,
+    SuccessDialogModule
   ]
 })
 export class ConfirmaCodeModule { }

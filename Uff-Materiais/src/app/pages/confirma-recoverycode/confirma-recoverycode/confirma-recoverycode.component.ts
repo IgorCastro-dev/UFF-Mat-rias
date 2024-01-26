@@ -1,9 +1,11 @@
 
 import { Component, Inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Codigo } from 'src/app/model/codigo';
 import { SharedDataService } from 'src/app/services/shared-data/shared-data.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-confirma-recoverycode',
@@ -18,7 +20,8 @@ export class ConfirmaRecoverycodeComponent {
   constructor(private route: ActivatedRoute,
     private router:Router,
     @Inject(SharedDataService) private sharedDataService:SharedDataService,
-    private usuarioService:UsuarioService) {}
+    private usuarioService:UsuarioService,
+    public dialog: MatDialog) {}
 
   ngOnInit() {
     // Capturar o email da URL
@@ -35,13 +38,17 @@ export class ConfirmaRecoverycodeComponent {
       this.usuarioService.confirmaRecoveryCode(codigo,this.emailRecebido).subscribe({
         next: () => {
           this.sharedDataService.setMeuDado({email:this.emailRecebido,codigo:codigo})
-          console.log('Código enviado com sucesso!');
           this.router.navigate(['update-password']);
         },
         error: (error: any) => {
-          console.error('Erro ao enviar código:', error);
-          // Trate o erro conforme necessário
+          this.openError('Erro ao enviar código: '+error.error.detail);
         }
+    });
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
     });
   }
 }

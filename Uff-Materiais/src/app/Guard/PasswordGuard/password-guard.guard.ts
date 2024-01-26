@@ -5,7 +5,6 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 
 export const passwordGuardGuard: CanActivateFn = (route:ActivatedRouteSnapshot, state) => {
   const dados = inject(SharedDataService).getMeuDado();
-  console.log(dados)
     return new Promise<boolean>((resolve) => {
       inject(UsuarioService).confirmaRecoveryCode(dados.codigo, dados.email).subscribe({
         next: (result) => {
