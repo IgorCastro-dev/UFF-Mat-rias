@@ -5,7 +5,7 @@
       <app-logo></app-logo>
       <mat-icon aria-hidden="false" aria-label="Example user icon" fontIcon="account_circle"></mat-icon>
     </div>
-    <h1>Olá, Leo</h1>
+    <h1>Olá, {{nome}}</h1>
     <p>Você terá acesso as matérias de SI da UFF.</p>
     <div *ngIf="materias$ | async as materias; else loading">
       <app-lista-materias-edit [materias]="materias"></app-lista-materias-edit>

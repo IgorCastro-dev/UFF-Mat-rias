@@ -2,8 +2,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { TopicoService } from './../../../services/topico/topico.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { error } from 'console';
-import { Observable, catchError, delay, of } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 import { Topico } from 'src/app/model/topico';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
@@ -15,7 +14,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 
 export class TopicoEditComponent {
   materiaId!:number;
-
+  nome = localStorage.getItem("usuario");
   topicos$!: Observable<Topico[]>;
   constructor(private topicoService:TopicoService,public dialog: MatDialog,private route: ActivatedRoute){
     this.route.params.subscribe(params => {

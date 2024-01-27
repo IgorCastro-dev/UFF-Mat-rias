@@ -23,6 +23,7 @@ export class MateriasEditComponent {
   label = "Usuário";
   exemplo = "Gabriel";
   materias$:Observable<Materia[]>
+  nome = localStorage.getItem("usuario");
   constructor(private materiaService: MateriaService,public dialog: MatDialog){
     this.materias$ = this.materiaService.getMaterias().pipe(
       catchError(error => {
