@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,10 @@ export class LoginComponent {
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', Validators.required);
   hide = true;
-  constructor(private router: Router,private authService:AuthService,private cookieService:CookieService){}
+  constructor(private router: Router,
+    private authService:AuthService,
+    private cookieService:CookieService,
+    public dialog: MatDialog){}
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
@@ -31,19 +36,25 @@ export class LoginComponent {
       if (response) {
         const expirationTime = response.keyCreationTime + 300000;
         this.cookieService.set("token",response.key,expirationTime,"/");
+        localStorage.setItem("usuario",response.extendedInformation);
         if(this.authService.isAdmin()){
           this.router.navigate(['area-logada-inicial']);
         }else{
           this.router.navigate(['materias-edit']);
         }
       } else {
-        console.error('Erro de autenticação: Token não disponível na resposta.');
+        this.openError('Erro de autenticação: Token não disponível na resposta.');
       }
     },
     error: (error) => {
-      // Trate erros de autenticação aqui
-      console.error('Erro de autenticação:', error);
+      this.openError('Erro de autenticação: '+error.error.detail);
     }
+  });
+}
+
+openError(errorMsg:string) {
+  this.dialog.open(ErrorDialogComponent, {
+    data: errorMsg
   });
 }
 }

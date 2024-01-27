@@ -13,7 +13,7 @@ import { TopicoService } from 'src/app/services/topico/topico.service';
   styleUrl: './lista-topicos-edit.component.scss'
 })
 export class ListaTopicosEditComponent {
-  @Input() topicos: Observable<Topico[]> = new Observable<Topico[]>();
+  @Input() topicos!: Topico[];
   @Input() materiaId!: number;
   dataSource: MatTableDataSource<Topico> = new MatTableDataSource<Topico>();
 
@@ -23,12 +23,10 @@ export class ListaTopicosEditComponent {
   constructor(private topicoService:TopicoService,private cdRef: ChangeDetectorRef,private router: Router) {}
 
   ngAfterViewInit() {
-    this.topicos.subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(this.topicos);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.cdRef.detectChanges();
-    });
   }
 
   applyFilter(event: Event) {

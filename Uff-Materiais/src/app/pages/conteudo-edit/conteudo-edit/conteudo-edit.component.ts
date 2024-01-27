@@ -2,7 +2,7 @@ import { Conteudo } from 'src/app/model/conteudo';
 import { ConteudoService } from './../../../services/conteudo/conteudo.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, delay } from 'rxjs';
 
 @Component({
   selector: 'app-conteudo-edit',
@@ -11,12 +11,13 @@ import { Observable } from 'rxjs';
 })
 export class ConteudoEditComponent {
   topicoId!:number;
-  conteudos!: Observable<Conteudo[]>;
+  conteudos$!: Observable<Conteudo[]>;
+  nome = localStorage.getItem("usuario");
   constructor(private conteudoService:ConteudoService,private route: ActivatedRoute){
     this.route.params.subscribe(params => {
       const topicoId = params['topico-id'];
       this.topicoId = topicoId;
-      this.conteudos = this.conteudoService.getConteudos(topicoId);
+      this.conteudos$ = this.conteudoService.getConteudos(topicoId);
     })
   }
 }

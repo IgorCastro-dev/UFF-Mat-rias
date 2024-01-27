@@ -13,7 +13,7 @@ import { MateriaService } from 'src/app/services/materia/materia.service';
   styleUrl: './lista-materias-edit.component.scss'
 })
 export class ListaMateriasEditComponent {
-  @Input() materias: Observable<Materia[]> = new Observable<Materia[]>();
+  @Input() materias!: Materia[];
   dataSource: MatTableDataSource<Materia> = new MatTableDataSource<Materia>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -24,12 +24,10 @@ export class ListaMateriasEditComponent {
   }
 
   ngAfterViewInit() {
-    this.materias.subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
+      this.dataSource = new MatTableDataSource(this.materias);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.cdRef.detectChanges();
-    });
   }
 
   navegarParaAtualizaMateria(materiaId: number) {

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-cadastra-usuario',
@@ -12,7 +14,7 @@ export class CadastraUsuarioComponent {
   formGroup: FormGroup;
   hide = true;
   nomeBotao="Cadastrar";
-  constructor(private usuarioService: UsuarioService,private route: ActivatedRoute,private router: Router,private fb: FormBuilder){
+  constructor(private usuarioService: UsuarioService,public dialog: MatDialog,private router: Router,private fb: FormBuilder){
 
     this.formGroup = this.fb.group({
       nome: ['Nome Exemplo', Validators.required],
@@ -26,12 +28,10 @@ export class CadastraUsuarioComponent {
       const usuarioNovo = this.formGroup.value;
       this.usuarioService.postUser(usuarioNovo).subscribe({
         next: () => {
-          console.log('Usuário cadastrado com sucesso!');
           this.router.navigate(['confirma-code'], { queryParams: { email: usuarioNovo.email } });
         },
         error: (error) => {
-          console.error('Erro ao cadastrar usuário:', error);
-          // Trate o erro conforme necessário
+          this.openError('Erro ao cadastrar usuário: '+error.error.detail)
         },
       });
   }
@@ -43,5 +43,11 @@ export class CadastraUsuarioComponent {
       return 'You must enter a value';
     }
     return this.emailFormControl .hasError('email') ? 'Not a valid email' : '';
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
   }
 }

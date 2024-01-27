@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Topico } from 'src/app/model/topico';
 import { TopicoService } from 'src/app/services/topico/topico.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-atualiza-topico',
@@ -15,7 +17,11 @@ export class AtualizaTopicoComponent {
   topicoId: number = 3;
   materiaId: number = 3;
 
-  constructor(private fb: FormBuilder,private topicoService:TopicoService,private route: ActivatedRoute,private router: Router){
+  constructor(private fb: FormBuilder,
+    private topicoService:TopicoService,
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog){
 
     this.route.params.subscribe(params => {
       const topicoId = params['topico-id'];
@@ -45,10 +51,15 @@ export class AtualizaTopicoComponent {
           this.router.navigate([`topico-edit/${this.materiaId}`]);
         },
         error: (error) => {
-              console.error('Erro ao atualizar usuário:', error);
-              // Trate o erro conforme necessário
+              this.openError('Erro ao atualizar tópico: '+ error.error.detail)
             }
       });
     }
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
   }
 }

@@ -15,9 +15,8 @@
       <span class="fileName"><p>{{ selectedFileName }}</p></span>
     </div>
 
-
-
     <app-button [nome]="nomeBotao" type="submit"></app-button>
   </form>
+  <mat-spinner class="spinner-container" *ngIf="showSpinner$ | async"></mat-spinner>
 </div>
 <app-footer></app-footer>

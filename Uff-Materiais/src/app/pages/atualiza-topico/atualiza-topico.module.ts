@@ -8,6 +8,7 @@ import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 import { AtualizaTopicoComponent } from './atualiza-topico/atualiza-topico.component';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AtualizaTopicoComponent } from './atualiza-topico/atualiza-topico.compo
     NavBarModule,
     FooterModule,
     LogoModule,
-    ButtonModule
+    ButtonModule,
+    ErrorDialogModule
   ]
 })
 export class AtualizaTopicoModule { }

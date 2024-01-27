@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { Observable, catchError, delay, of } from 'rxjs';
 import { Materia } from 'src/app/model/materia';
 import { MateriaService } from 'src/app/services/materia/materia.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-materias-edit',
@@ -20,9 +22,19 @@ export class MateriasEditComponent {
 
   label = "Usuário";
   exemplo = "Gabriel";
-  materias:Observable<Materia[]>
-  constructor(private materiaService: MateriaService){
-    this.materias = this.materiaService.getMaterias();
+  materias$:Observable<Materia[]>
+  nome = localStorage.getItem("usuario");
+  constructor(private materiaService: MateriaService,public dialog: MatDialog){
+    this.materias$ = this.materiaService.getMaterias().pipe(
+      catchError(error => {
+        this.openError("Erro ao carregar as matérias, tente novamente")
+        return of([]);
+      })
+    );
   }
-
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
+  }
 }

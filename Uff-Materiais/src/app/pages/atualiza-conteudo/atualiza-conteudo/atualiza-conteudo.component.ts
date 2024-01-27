@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { Conteudo } from 'src/app/model/conteudo';
 import { ConteudoService } from 'src/app/services/conteudo/conteudo.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-atualiza-conteudo',
@@ -15,9 +18,12 @@ export class AtualizaConteudoComponent {
   selectedFileName: string = "Nome Arquivo";
   topicoId: number = 3;
   conteudoId: number = 3;
+  showSpinner$ = new BehaviorSubject<boolean>(false);
 
   constructor(private fb: FormBuilder,private conteudoService:ConteudoService,
-    private route: ActivatedRoute,private router: Router){
+    private route: ActivatedRoute,
+    private router: Router,
+    public dialog: MatDialog){
 
     this.route.params.subscribe(params => {
       const conteudoId = params['conteudo-id'];
@@ -53,16 +59,23 @@ export class AtualizaConteudoComponent {
       if (typeof descricaoInput === 'string') {
         conteudo.append('descricao', descricaoInput);
       }
-
+      this.showSpinner$.next(true);
       this.conteudoService.updateConteudo(this.conteudoId,conteudo,).subscribe({
         next: () => {
+          this.showSpinner$.next(false);
           this.router.navigate([`conteudo-edit/${this.topicoId}`]);
         },
         error: (error) => {
-          console.error('Erro ao fazer upload do conteúdo:', error);
-          // Trate o erro conforme necessário
+          this.showSpinner$.next(false);
+          this.openError('Erro ao fazer upload do conteúdo');
         }
       });
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
   }
 
   onFileSelected(event: any) {

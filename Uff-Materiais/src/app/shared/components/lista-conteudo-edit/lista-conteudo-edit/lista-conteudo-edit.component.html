@@ -32,6 +32,7 @@
               [pageSize]="10"
               aria-label="Select page">
 </mat-paginator>
+<mat-spinner class="spinner-container" *ngIf="showSpinner$ | async"></mat-spinner>
 <div class="container-botao">
   <button class="adicionar-conteudo-btn" (click)="goToSalvarConteudo()">
     <p>Adicionar Conteúdo</p>

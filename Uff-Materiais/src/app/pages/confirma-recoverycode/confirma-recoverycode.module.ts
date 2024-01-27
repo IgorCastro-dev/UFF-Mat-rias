@@ -8,6 +8,7 @@ import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { ButtonModule } from 'src/app/shared/components/button/button.module';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ButtonModule } from 'src/app/shared/components/button/button.module';
     LogoModule,
     MaterialModule,
     FooterModule,
-    ButtonModule
+    ButtonModule,
+    ErrorDialogModule
   ]
 })
 export class ConfirmaRecoverycodeModule { }

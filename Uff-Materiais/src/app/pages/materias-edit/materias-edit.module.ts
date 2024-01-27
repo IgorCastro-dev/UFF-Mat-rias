@@ -9,6 +9,7 @@ import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { ListaMateriasEditModule } from 'src/app/shared/components/lista-materias-edit/lista-materias-edit.module';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ListaMateriasEditModule } from 'src/app/shared/components/lista-materia
     NavBarModule,
     LogoModule,
     FooterModule,
-    ListaMateriasEditModule
+    ListaMateriasEditModule,
+    ErrorDialogModule
   ]
 })
 export class MateriasEditModule { }

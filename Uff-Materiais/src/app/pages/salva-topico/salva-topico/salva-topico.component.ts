@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TopicoService } from 'src/app/services/topico/topico.service';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-salva-topico',
@@ -13,7 +15,7 @@ export class SalvaTopicoComponent {
   nomeBotao = "salvar";
   topicoId: number = 3;
 
-  constructor(private fb: FormBuilder,private topicoService:TopicoService,private route: ActivatedRoute,private router: Router){
+  constructor(private fb: FormBuilder,public dialog: MatDialog,private topicoService:TopicoService,private route: ActivatedRoute,private router: Router){
 
     this.route.params.subscribe(params => {
       const materiaId = params['topico-id'];
@@ -33,10 +35,15 @@ export class SalvaTopicoComponent {
           this.router.navigate([`topico-edit/${this.topicoId}`]);
         },
         error: (error) => {
-              console.error('Erro ao atualizar usuário:', error);
-              // Trate o erro conforme necessário
+              this.openError("Erro ao salvar tópico: "+error.error.detail)
             }
       });
     }
+  }
+
+  openError(errorMsg:string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
   }
 }

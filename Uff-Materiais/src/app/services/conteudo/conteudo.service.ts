@@ -14,7 +14,6 @@ export class ConteudoService {
   private apiUrl = "http://localhost:8080/v1/api/uff-materias/conteudo";
   private token = this.cookieService.get('token');
   private headers = new HttpHeaders({
-    'Content-Type': 'application/json',
     'Authorization': `Bearer ${this.token}`
   });
 
@@ -34,13 +33,7 @@ export class ConteudoService {
 
 
   dowloadConteudo(fileNome: string): Observable<Blob> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/octet-stream',
-      'Authorization': `Bearer ${this.token}`
-    });
-
-    return this.http.get(`${this.apiUrl}/dowload/${fileNome}`, { headers: headers, responseType: 'blob' });
+    return this.http.get(`${this.apiUrl}/dowload/${fileNome}`, { headers: this.headers, responseType: 'blob' });
   }
 
   updateConteudo(conteudoId: number,conteudo: FormData){

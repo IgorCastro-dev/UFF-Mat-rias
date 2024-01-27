@@ -10,6 +10,7 @@ import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { MatSelectModule } from '@angular/material/select';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatSelectModule } from '@angular/material/select';
     ButtonModule,
     NgxMaskDirective,
     NavBarModule,
-    FooterModule
+    FooterModule,
+    ErrorDialogModule
   ],
   providers: [
     provideNgxMask()
