@@ -5,6 +5,9 @@
 
 ![Logo](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/28fc9828-78da-4b4d-aeba-7fb40d17db5d)
 
+## API do backend
+
+https://github.com/IgorCastro-dev/UFF-Materias
 
 ## Stack utilizada
 
