@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
@@ -8,7 +9,11 @@ import { Router } from '@angular/router';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
-  constructor(private location: Location,private router: Router) {}
+
+  usuario = localStorage.getItem("usuario");
+  email = localStorage.getItem("email");
+
+  constructor(private location: Location,private router: Router,private cookieService:CookieService) {}
 
   goBack(): void {
     this.location.back();
@@ -18,7 +23,9 @@ export class NavBarComponent {
     this.router.navigate(['/materias-edit']);
   }
 
-  goLogin(){
+  logout(){
+    localStorage.clear();
+    this.cookieService.delete('token');
     this.router.navigate(['/login']);
   }
 }

@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
@@ -8,7 +9,10 @@ import { Location } from '@angular/common';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  constructor(private location: Location,private router:Router) {}
+  usuario = localStorage.getItem("usuario");
+  email = localStorage.getItem("email");
+
+  constructor(private location: Location,private router:Router,private cookieService:CookieService) {}
 
   goBack() {
     this.location.back();
@@ -16,5 +20,11 @@ export class FooterComponent {
 
   goMateria(){
     this.router.navigate(['/materias-edit']);
+  }
+
+  logout(){
+    localStorage.clear();
+    this.cookieService.delete('token');
+    this.router.navigate(['/login']);
   }
 }

@@ -37,6 +37,7 @@ export class LoginComponent {
         const expirationTime = response.keyCreationTime + 300000;
         this.cookieService.set("token",response.key,expirationTime,"/");
         localStorage.setItem("usuario",response.extendedInformation);
+        localStorage.setItem("email",email);
         if(this.authService.isAdmin()){
           this.router.navigate(['area-logada-inicial']);
         }else{
