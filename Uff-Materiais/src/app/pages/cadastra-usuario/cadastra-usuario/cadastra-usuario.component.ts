@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
@@ -15,6 +16,7 @@ export class CadastraUsuarioComponent {
   formGroup: FormGroup;
   hide = true;
   nomeBotao="Cadastrar";
+  showSpinner$ = new BehaviorSubject<boolean>(false);
   constructor(private usuarioService: UsuarioService,
     public dialog: MatDialog,
     private router: Router,
@@ -32,11 +34,14 @@ export class CadastraUsuarioComponent {
   cadastrarUsuario() {
       const usuarioNovo = this.formGroup.value;
       if (usuarioNovo.email.endsWith('@id.uff.br')) {
+      this.showSpinner$.next(true);
       this.usuarioService.postUser(usuarioNovo).subscribe({
         next: () => {
+          this.showSpinner$.next(false);
           this.router.navigate(['confirma-code'], { queryParams: { email: usuarioNovo.email } });
         },
         error: (error) => {
+          this.showSpinner$.next(false);
           this.openError('Erro ao cadastrar usuário: '+error.error.detail)
         },
       });

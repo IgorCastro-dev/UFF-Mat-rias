@@ -16,4 +16,5 @@
 
     <app-button [nome]="nomeBotao" type="submit"></app-button>
   </form>
+  <mat-spinner class="spinner-container" *ngIf="showSpinner$ | async"></mat-spinner>
 </div>

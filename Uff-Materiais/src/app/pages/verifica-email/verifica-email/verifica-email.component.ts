@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog/error-dialog.component';
 
@@ -16,6 +17,7 @@ export class VerificaEmailComponent {
   nomeBotao = "Enviar Código";
   emailFormControl  = new FormControl('', [Validators.required, Validators.email]);
   formGroup: FormGroup;
+  showSpinner$ = new BehaviorSubject<boolean>(false);
 
   constructor(private usuarioService: UsuarioService,
     private router: Router,
@@ -35,11 +37,14 @@ export class VerificaEmailComponent {
   }
   enviaCodigo(){
     const email = this.formGroup.value;
+    this.showSpinner$.next(true);
     this.usuarioService.verifyEmail(email).subscribe({
       next: () => {
+        this.showSpinner$.next(false);
         this.router.navigate(['confirma-recoverycode'], { queryParams: { email: email.email } });
       },
       error: (error) => {
+        this.showSpinner$.next(false);
         this.openError('Erro ao enviar email: '+error.error.detail);
       }
     });
