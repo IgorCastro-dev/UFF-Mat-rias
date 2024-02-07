@@ -13,13 +13,13 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 export class SalvaTopicoComponent {
   formGroup!: FormGroup;
   nomeBotao = "salvar";
-  topicoId: number = 3;
+  materiaId: number = 3;
 
   constructor(private fb: FormBuilder,public dialog: MatDialog,private topicoService:TopicoService,private route: ActivatedRoute,private router: Router){
 
     this.route.params.subscribe(params => {
-      const materiaId = params['topico-id'];
-      this.topicoId = materiaId;
+      const materiaId = params['materia-id'];
+      this.materiaId = materiaId;
     });
 
     this.formGroup = this.fb.group({
@@ -30,9 +30,9 @@ export class SalvaTopicoComponent {
   salvarTopico(){
     if (this.formGroup.valid) {
       const topicoNovo= this.formGroup.value;
-      this.topicoService.salvaTopicoPorMateria(this.topicoId,topicoNovo).subscribe({
+      this.topicoService.salvaTopicoPorMateria(this.materiaId,topicoNovo).subscribe({
         next: () => {
-          this.router.navigate([`topico-edit/${this.topicoId}`]);
+          this.router.navigate([`topico-edit/${this.materiaId}`]);
         },
         error: (error) => {
               this.openError("Erro ao salvar tópico: "+error.error.detail)
