@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,11 +15,15 @@ export class CadastraUsuarioComponent {
   formGroup: FormGroup;
   hide = true;
   nomeBotao="Cadastrar";
-  constructor(private usuarioService: UsuarioService,public dialog: MatDialog,private router: Router,private fb: FormBuilder){
+  constructor(private usuarioService: UsuarioService,
+    public dialog: MatDialog,
+    private router: Router,
+    private fb: FormBuilder,
+    private location:Location){
 
     this.formGroup = this.fb.group({
       nome: ['Nome Exemplo', Validators.required],
-      email: ['exemplo@id.uff.com', [Validators.required, Validators.email]],
+      email: ['exemplo@id.uff.br', [Validators.required, Validators.email]],
       celular: ['(99) 9 9999-9999', [Validators.required]],
       password: ['', [Validators.required]]
     });
@@ -26,6 +31,7 @@ export class CadastraUsuarioComponent {
 
   cadastrarUsuario() {
       const usuarioNovo = this.formGroup.value;
+      if (usuarioNovo.email.endsWith('@id.uff.br')) {
       this.usuarioService.postUser(usuarioNovo).subscribe({
         next: () => {
           this.router.navigate(['confirma-code'], { queryParams: { email: usuarioNovo.email } });
@@ -34,6 +40,9 @@ export class CadastraUsuarioComponent {
           this.openError('Erro ao cadastrar usuário: '+error.error.detail)
         },
       });
+    }else{
+      this.openError('Apenas emails da UFF são permitidos para o cadastro.');
+    }
   }
 
   emailFormControl  = new FormControl('', [Validators.required, Validators.email]);
@@ -43,6 +52,10 @@ export class CadastraUsuarioComponent {
       return 'You must enter a value';
     }
     return this.emailFormControl .hasError('email') ? 'Not a valid email' : '';
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   openError(errorMsg:string) {

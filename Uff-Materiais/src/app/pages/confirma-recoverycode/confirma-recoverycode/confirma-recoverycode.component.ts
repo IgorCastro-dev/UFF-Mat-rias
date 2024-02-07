@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 
 import { Component, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -21,7 +22,8 @@ export class ConfirmaRecoverycodeComponent {
     private router:Router,
     @Inject(SharedDataService) private sharedDataService:SharedDataService,
     private usuarioService:UsuarioService,
-    public dialog: MatDialog) {}
+    public dialog: MatDialog,
+    private location:Location) {}
 
   ngOnInit() {
     // Capturar o email da URL
@@ -45,7 +47,9 @@ export class ConfirmaRecoverycodeComponent {
         }
     });
   }
-
+  goBack() {
+    this.location.back();
+  }
   openError(errorMsg:string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg

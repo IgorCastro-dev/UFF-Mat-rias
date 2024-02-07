@@ -15,17 +15,17 @@
   min-height: 100vh;
 }
 
-@media (min-width: 600px){
-  .logo_logado{
-    display: none;
-  }
-  app-footer{
-    display: none;
-  }
+.header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
 }
-@media (max-width: 600px){
-  app-nav-bar{
-    display: none;
-  }
+
+.material-icons{
+  font-size: 45px;
+  height: 45px;
+  width: 45px;
+  margin-left: 60px;
 }
 

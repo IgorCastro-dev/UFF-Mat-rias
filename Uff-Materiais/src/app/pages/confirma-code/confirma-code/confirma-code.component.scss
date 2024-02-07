@@ -8,6 +8,8 @@
   min-height: 100vh;
 }
 
+
+
 input {
   width: 40px;
   height: 40px;
@@ -15,24 +17,24 @@ input {
   text-align: center;
 }
 
+.header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.material-icons{
+  font-size: 45px;
+  height: 45px;
+  width: 45px;
+  margin-left: 60px;
+}
+
 .input {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
-}
-
-@media (min-width: 600px){
-  .logo_logado{
-    display: none;
-  }
-  app-footer{
-    display: none;
-  }
-}
-@media (max-width: 600px){
-  app-nav-bar{
-    display: none;
-  }
 }
 
 

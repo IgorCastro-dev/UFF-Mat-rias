@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -19,10 +20,11 @@ export class VerificaEmailComponent {
   constructor(private usuarioService: UsuarioService,
     private router: Router,
     private fb: FormBuilder,
-    public dialog: MatDialog){
+    public dialog: MatDialog,
+    private location:Location){
 
     this.formGroup = this.fb.group({
-      email: ['exemplo@id.uff.com', [Validators.required, Validators.email]]
+      email: ['exemplo@id.uff.br', [Validators.required, Validators.email]]
     });
   }
   getErrorMessage() {
@@ -47,5 +49,9 @@ export class VerificaEmailComponent {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

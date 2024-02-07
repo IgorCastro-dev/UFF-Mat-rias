@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Codigo } from './../../../model/codigo';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import { Component } from '@angular/core';
@@ -16,7 +17,10 @@ export class ConfirmaCodeComponent {
   emailRecebido!: string;
   codigoDigitado: string[] = ['', '', '', ''];
 
-  constructor(private route: ActivatedRoute,private usuarioService:UsuarioService,public dialog: MatDialog) {}
+  constructor(private route: ActivatedRoute,
+    private usuarioService:UsuarioService,
+    public dialog: MatDialog,
+    private location:Location) {}
 
   ngOnInit() {
     // Capturar o email da URL
@@ -44,6 +48,10 @@ export class ConfirmaCodeComponent {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg
     });
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   openSuccess(successMsg:string) {

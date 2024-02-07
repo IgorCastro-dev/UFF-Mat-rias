@@ -1,6 +1,8 @@
 <div class="verifica-email">
-  <app-nav-bar></app-nav-bar>
-  <app-logo></app-logo>
+  <div class="header">
+    <app-logo></app-logo>
+    <mat-icon (click)="goBack()" style="color: palevioletred;"class="mat-18">reply</mat-icon>
+  </div>
   <p style="color: white;">Confirme seu email</p>
   <form class="example-form" (ngSubmit)="enviaCodigo()" [formGroup]="formGroup">
 
@@ -15,4 +17,3 @@
     <app-button [nome]="nomeBotao" type="submit"></app-button>
   </form>
 </div>
-<app-footer></app-footer>
