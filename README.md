@@ -64,41 +64,54 @@ No browser, Visualize o Aplicativo:
 ![Tela de login](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/c13045fa-a6f2-4854-864f-7e0840826c9a)
 
 ## Tela de gerenciamento de matérias
-![Tela de gerenciamento de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/3c128402-6452-45bf-8a7a-c5f1cc7d7861)
+![Tela de gerenciamento de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/46c5543e-ecc3-4b4b-82c6-c0f382d9c095)
 
 
 ## Tela de atualização de senha
-![Tela de atualização de senha](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/e3c53602-8a22-4376-a345-a83c04c5a7cd)
+![Tela de atualização de senha](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/82c50e79-cb0a-41e9-a25d-52f277170b0f)
+
 
 ## Tela de confirmação de código
-![Tela de confirmação de código](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/c8c1a4be-8100-4679-918a-0cb0ad3e3494)
+![Tela de confirmação de código](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/3e84cd86-20a3-4ef1-9b2f-60d389636b40)
+
 
 ## Tela de confirmação de email
-![Tela de confirmação de email](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/b9682638-0549-4531-aa4e-f2450c870ab5)
-
+![Tela de confirmação de email](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/cb769b25-9684-420a-a0d8-bafa88c03b0e)
 
 ## Tela de cadastro
-![Tela de cadastro](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/d51c3ec2-fb59-41bf-b724-144b49a278e1)
+![Tela de cadastro](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/155fca78-75f4-4260-b6fb-483b39d8fdfa)
+
 
 ## Tela de envio de arquivo
-![Tela de envio de arquivo](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/ac486e60-1f4b-4cc0-b52b-92e67dd3c75e)
+![Tela de envio de arquivo](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/86c1a318-15da-4d05-a487-e24932c92c11)
 
 ## Tela de atualização de arquivo
-![Tela de atualização de arquivo](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/8eb35f54-74e0-46c6-a5f1-b7717987fea5)
+![Tela de atualização de arquivo](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/56260500-f652-45fb-8ba2-7500389f5f71)
+
 
 ## Tela de gerenciamento de arquivo
-![Tela de gerenciamento de arquivo](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/a8f1843a-c95d-4cb6-b2ab-e2898e80711b)
+![Tela de gerenciamento de arquivo](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/00b2fc4f-0bd7-4143-982f-699d54ae2669)
+
+## Tela de atualização de tópico
+![Tela de atualização de tópico](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/91997538-3a37-4b4f-b6ec-b4786ea0b564)
 
 
 ## Tela de gerenciamento de tópicos
-![Tela de gerenciamento de tópicos](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/a05ab7a0-f481-41a0-9812-da923e645b1e)
+![Tela de gerenciamento de tópicos](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/b72aaadd-757d-4205-9d83-4775fd817cdf)
+
+## Tela de adicionar de tópicos
+![Tela de adicionar de tópicos](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/69794cf2-d5aa-48a8-b124-dee1533d0543)
+
+
 
 ## Tela de cadastro de matérias
-![Tela de cadastro de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/708a88ea-6448-4843-896a-a0ebf99fef34)
+![Tela de cadastro de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/b94c0d3d-5fcf-434b-a923-b8fa74d4e948)
 
 
 ## Tela de gerenciamento de matérias
-![Tela de gerenciamento de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/b1b7f021-de0a-4fbd-a6c0-091614755800)
+![Tela de gerenciamento de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/f628c1db-3349-45b6-9508-a80957bd3273)
+
 
 ## Tela de atualização de matérias
-![Tela de atualização de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/733129a0-a036-4a90-9a03-dfc8cd927455)
+![Tela de atualização de matérias](https://github.com/IgorCastro-dev/UFF-Mat-rias/assets/77001554/291960ac-24ed-419e-9975-e648106c2b35)
+
