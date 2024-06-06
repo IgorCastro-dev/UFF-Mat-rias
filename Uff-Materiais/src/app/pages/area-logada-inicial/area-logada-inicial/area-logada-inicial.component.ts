@@ -9,4 +9,5 @@ export class AreaLogadaInicialComponent {
   nomeBotao1 = "editar usuários";
   nomeBotao2 = "editar matéria";
   color = "accent";
+  nome = localStorage.getItem("usuario");
 }

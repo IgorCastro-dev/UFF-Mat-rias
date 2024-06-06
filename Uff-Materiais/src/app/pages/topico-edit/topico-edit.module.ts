@@ -8,6 +8,7 @@ import { LogoModule } from 'src/app/shared/components/logo/logo.module';
 import { FooterModule } from 'src/app/shared/components/footer/footer.module';
 import { NavBarModule } from 'src/app/shared/components/nav-bar/nav-bar.module';
 import { ListaTopicosEditModule } from 'src/app/shared/components/lista-topicos-edit/lista-topicos-edit.module';
+import { ErrorDialogModule } from 'src/app/shared/components/error-dialog/error-dialog.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ListaTopicosEditModule } from 'src/app/shared/components/lista-topicos-
     LogoModule,
     FooterModule,
     NavBarModule,
-    ListaTopicosEditModule
+    ListaTopicosEditModule,
+    ErrorDialogModule
   ]
 })
 export class TopicoEditModule { }

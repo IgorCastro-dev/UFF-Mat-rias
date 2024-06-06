@@ -24,7 +24,8 @@ export class UsuarioEditComponent {
 
   label = "Usuário";
   exemplo = "Gabriel";
-  usuarios:Observable<Usuario[]>
+  usuarios:Observable<Usuario[]>;
+  nome = localStorage.getItem("usuario");
   constructor(private usuarioService: UsuarioService,public dialog: MatDialog){
     this.usuarios = this.usuarioService.getUsers().pipe(
       catchError(error => {
