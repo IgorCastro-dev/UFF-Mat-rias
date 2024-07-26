@@ -11,7 +11,7 @@ export class ConteudoService {
 
   constructor(private http:HttpClient,private cookieService:CookieService ) {}
 
-  private apiUrl = "http://localhost:8080/v1/api/uff-materias/conteudo";
+  private apiUrl = "https://uff-materias-1.onrender.com/v1/api/uff-materias/conteudo";
   private token = this.cookieService.get('token');
   private headers = new HttpHeaders({
     'Authorization': `Bearer ${this.token}`

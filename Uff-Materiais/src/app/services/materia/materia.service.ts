@@ -9,7 +9,7 @@ import { Materia } from 'src/app/model/materia';
 })
 export class MateriaService {
   constructor(private http:HttpClient,private cookieService:CookieService ) {}
-  private apiUrl = 'http://localhost:8080/v1/api/uff-materias/materias';
+  private apiUrl = 'https://uff-materias-1.onrender.com/v1/api/uff-materias';
   private token = this.cookieService.get('token');
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',

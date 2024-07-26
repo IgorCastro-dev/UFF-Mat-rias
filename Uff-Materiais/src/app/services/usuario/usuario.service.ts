@@ -13,7 +13,7 @@ export class UsuarioService {
 
   constructor(private http:HttpClient,private cookieService:CookieService ) {}
 
-  private apiUrl = 'http://localhost:8080/v1/api/uff-materias/usuarios';
+  private apiUrl = 'https://uff-materias-1.onrender.com/v1/api/uff-materias/usuarios';
 
   private token = this.cookieService.get('token');
   private headers = new HttpHeaders({

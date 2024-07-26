@@ -10,7 +10,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class AuthService {
 
-  private apiUrl = "http://localhost:8080/v1/api/uff-materias";
+  private apiUrl = "https://uff-materias-1.onrender.com/v1/api/uff-materias";
 
   private jwtHelperService: JwtHelperService = new JwtHelperService();
 
